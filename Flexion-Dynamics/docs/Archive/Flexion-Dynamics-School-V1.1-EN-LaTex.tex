@@ -1,0 +1,1269 @@
+\documentclass[12pt,a4paper]{article}
+
+% ====== PACKAGES ======
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{titlesec}
+
+% ====== PAGE SETUP ======
+\geometry{margin=1in}
+\setstretch{1.2}
+
+% ====== TITLE FORMAT ======
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+
+% ====== DOCUMENT INFO ======
+\title{Flexion Dynamics \\ \large Unified Structural Dynamics School \\ \vspace{0.3cm} \normalsize Version 1.1 (International Edition)}
+\author{}
+\date{}
+
+\begin{document}
+
+% ====== TITLE PAGE ======
+\begin{titlepage}
+    \centering
+    
+    {\Large \textbf{Flexion Dynamics}}\\[0.5cm]
+    {\large \textbf{Unified Structural Dynamics School}}\\[0.3cm]
+    {\normalsize \textbf{Version 1.1 (International Edition)}}\\[1.2cm]
+    
+    % Decorative line
+    \rule{\linewidth}{0.6pt}\\[0.4cm]
+    
+    {\large \textit{A Unified Theory of Bidirectional Structural Motion}}\\[0.2cm]
+    \rule{\linewidth}{0.6pt}\\[1.5cm]
+    
+    % Author section (optional)
+    {\large \textbf{Author:}}\\
+    {\normalsize Maryan Bogdanov}\\[1cm]
+    
+    % Institution or project
+    {\large \textbf{Project:}}\\
+    {\normalsize Flexionization Research Initiative}\\[2.5cm]
+    
+    % Footer
+    \vfill
+    {\normalsize \today}
+    
+    \end{titlepage}
+    
+    % ====== ABSTRACT ======
+    \begin{abstract}
+    Flexion Dynamics is a unified scientific discipline that formalizes the bidirectional evolution of structural systems through the concept of deviation. It integrates two symmetric branches---Flexionization (contractive dynamics) and Deflexionization (expansive dynamics)---into a single coherent framework governed by structural deviation $\Delta$, the Flexion Symmetry Index (FXI), and the bidirectional super-operator $\mathcal{E}$. The central dynamic object of the discipline is Flexion Flow, the trajectory of deviation over time, which captures stabilization, divergence, critical transitions, adaptation, degradation, and collapse.
+    
+    Flexion Dynamics provides a universal language applicable across economics, engineering, biology, computation, artificial intelligence, social systems, and materials science. By focusing on the form of structural motion rather than domain-specific details, the theory offers a comprehensive foundation for analyzing resilience, instability, thresholds, and structural life cycles in complex systems. Version 1.1 (International Edition) presents the complete formal and philosophical foundations of the discipline.
+    \end{abstract}
+    
+    % ====== KEYWORDS ======
+    \begin{flushleft}
+    \textbf{Keywords:} Flexion Dynamics, structural deviation, bidirectional dynamics, Flexion Flow, structural symmetry, contractive dynamics, expansive dynamics, complex systems, structural stability, structural collapse, dual-operator framework, systems theory.
+    \end{flushleft}
+
+    \section*{Meta-Preface}
+
+    This document presents \textit{Flexion Dynamics} as a conceptual and philosophical 
+    framework that unifies the directional principles of structural evolution across 
+    diverse systems. It is \textbf{not intended as a formal mathematical theory}. 
+    The rigorous mathematical foundations of the framework --- including contractive 
+    operators, expansive operators, deviation geometry, and equilibrium dynamics --- 
+    are developed separately in:
+
+    \begin{itemize}
+    \item \textit{Flexionization Theory V1.5},
+    \item \textit{Deflexionization V1.0},
+    \item \textit{Flexionization Risk Engine (FRE) V1.1--V2.0},
+    \item \textit{Flexion Control System (FCS) Architecture},
+    \item \textit{Flexion-Immune Model V1.1}.
+    \end{itemize}
+
+    The goal of \textit{Flexion Dynamics} is to articulate the 
+    \textbf{unified conceptual architecture} that connects these formal models, providing 
+    a coherent high-level view of bidirectional structural motion: stabilization, 
+    divergence, adaptation, thresholds, resilience, and collapse. It serves as a 
+    theoretical bridge between mathematical models and their interdisciplinary 
+    interpretations.
+
+    This edition (V1.1, International Edition) should therefore be understood as a 
+    \textbf{vision-level framework}, laying out the conceptual foundations and 
+    philosophical structure upon which further mathematical, empirical, and 
+    applied developments continue to build.
+    
+    % ====== PREFACE / FOREWORD ======
+    \section*{Preface}
+
+    Flexion Dynamics emerged from the need to unify the structural principles underlying stability, instability, adaptation, and collapse across diverse scientific domains.  
+    Traditional theories often describe one direction of motion --- either stabilization or destabilization --- but not both simultaneously.  
+    The concept of structural deviation $\Delta$, together with the dual operators $E$ and $\bar{E}$, provides a new theoretical language capable of describing complete structural evolution.
+
+    This work presents Flexion Dynamics as a foundational discipline that integrates Flexionization and Deflexionization into a single unified framework.  
+    It is intended for researchers, scientists, and engineers working in fields where structures evolve over time:  
+    from economics and artificial intelligence to biology, social systems, and physical materials.
+
+    Version 1.1 (International Edition) is the first fully articulated English-language edition and forms the basis for future research, computational models, and interdisciplinary applications.
+
+    \vspace{1cm}
+
+    % ====== GLOSSARY ======
+    \section*{Glossary}
+
+    \begin{description}
+
+    \item[Structural Deviation ($\Delta$):]  
+    A measure of how far a system is from its structural symmetry point.  
+    The central quantity in Flexion Dynamics.
+
+    \item[Flexion Symmetry Index (FXI):]  
+    A monotonic function of deviation describing the structural condition of the system.
+
+    \item[Contractive Operator ($E$):]  
+    The operator that reduces deviation, driving the system toward symmetry (Flexionization).
+
+    \item[Expansive Operator ($\bar{E}$):]  
+    The operator that increases deviation, driving the system away from symmetry (Deflexionization).
+
+    \item[Directional Parameter ($\sigma$):]  
+    Determines whether the system is in contractive ($\sigma = -1$) or expansive ($\sigma = +1$) mode.
+
+    \item[Super-Operator ($\mathcal{E}$):]  
+    A bidirectional operator selecting $E$ or $\bar{E}$ based on $\sigma$.
+
+    \item[Flexion Flow:]  
+    The trajectory of deviation $\Delta(t)$ through time; the fundamental dynamic object.
+
+    \item[Symmetry Point ($\Delta = 0$):]  
+    The ideal structural state: attractor for $E$, repeller for $\bar{E}$.
+
+    \item[Structural Limits ($\Delta_{\min}, \Delta_{\max}$):]  
+    Boundaries defining the admissible structural domain of a system.
+
+    \item[Critical Zone:]  
+    Region where deviation approaches structural limits and the system becomes highly unstable.
+
+    \item[Point of No Return:]  
+    A deviation beyond which contractive dynamics cannot restore symmetry.
+
+\end{description}
+
+\vspace{1cm}
+
+
+% ====== ACKNOWLEDGEMENTS ======
+\section*{Acknowledgements}
+
+The development of Flexion Dynamics was made possible through continuous research, experimentation, and cross-disciplinary exploration.  
+The author extends sincere gratitude to all collaborators, colleagues, and contributors who supported the conceptual development of this framework.
+
+Special acknowledgment is given to the teams and communities working in structural dynamics, artificial intelligence, systems theory, and complex systems analysis, whose insights and challenges helped shape the direction of this work.
+
+This project is part of the Flexionization Research Initiative, which continues to advance the study of structural motion, bidirectional dynamics, and universal principles of stability and collapse.
+
+\vspace{0.5cm}
+
+\noindent The author gratefully acknowledges all those who contributed directly or indirectly to the creation of this monograph.
+
+\newpage
+
+    \newpage
+    
+\tableofcontents
+\newpage
+
+% ====== MAIN SECTIONS ======
+
+\section{Introduction}
+
+Flexion Dynamics is a unified scientific discipline that integrates two symmetric structural theories---Flexionization and Deflexionization---into a single bidirectional framework of structural motion. The discipline studies how systems evolve through changes in their structural deviation $\Delta$, which represents the distance between the current state of a system and its ideal point of symmetry.
+
+The theory asserts that all structural systems exhibit two fundamental modes of evolution:
+
+\begin{itemize}
+    \item \textbf{Contractive dynamics (Flexionization)} --- the process through which a system reduces its deviation and moves toward symmetry, balance, or structural equilibrium.
+    \item \textbf{Expansive dynamics (Deflexionization)} --- the process through which a system increases its deviation and moves away from symmetry, entering states of rising asymmetry, instability, or structural tension.
+\end{itemize}
+
+At the core of Flexion Dynamics lies the concept of \textbf{Flexion Flow}, the trajectory of deviation over time generated by the dynamic interaction of contractive and expansive regimes. Flexion Flow captures the full evolution of a structure as it stabilizes, destabilizes, adapts, diverges, or approaches collapse.
+
+Flexion Dynamics provides a unified language for understanding structural stability, resilience, divergence, critical transitions, adaptive behavior, and collapse across a wide range of complex systems, including physical, biological, computational, economic, and social domains.
+
+Rather than analyzing the specific content of a system, Flexion Dynamics focuses on the \textit{form} of motion itself---on how structures move through their deviation space, how they respond to disturbances, and how their internal organization shapes their long-term behavior. This makes Flexion Dynamics a universal scientific framework for describing structural evolution in any domain where deviation and symmetry exist.
+
+
+\section{Subject and Scope of Flexion Dynamics}
+
+Flexion Dynamics studies the structural motion of systems that possess an internal organization, measurable deviation, and a distinguishable state of symmetry. The discipline is concerned not with the material nature of a system, but with the \textit{structure} of its evolution---how a system moves, stabilizes, destabilizes, adapts, or collapses over time.
+
+At the center of the discipline is the notion of \textbf{structural deviation} $\Delta$, which quantifies the distance between the current state of a system and its ideal point of symmetry. Any system capable of exhibiting deviation can be analyzed through the lens of Flexion Dynamics.
+
+Flexion Dynamics defines two fundamental forms of structural evolution:
+
+\begin{itemize}
+    \item \textbf{Contractive structural dynamics (Flexionization):} 
+    A mode in which deviation decreases, symmetry strengthens, and the system moves toward equilibrium, balance, or structural coherence.
+
+    \item \textbf{Expansive structural dynamics (Deflexionization):}
+    A mode in which deviation increases, asymmetry intensifies, and the system moves away from equilibrium toward stress, instability, or collapse.
+\end{itemize}
+
+Together, these modes encompass the \textbf{full spectrum} of structural behavior, from stabilization to divergence, from recovery to degradation, and from resilience to collapse.
+
+The scope of Flexion Dynamics includes, but is not limited to, the following domains:
+
+\begin{itemize}
+    \item economic and financial systems,
+    \item biological and ecological systems,
+    \item engineered and technical systems,
+    \item artificial intelligence and computational structures,
+    \item social and organizational dynamics,
+    \item physical materials and structural mechanics.
+\end{itemize}
+
+Flexion Dynamics provides a unifying framework that makes it possible to describe all such systems using the same structural principles. The discipline focuses on how deviation changes, how symmetry is gained or lost, and how contractive and expansive forces shape the evolution of complex systems.
+
+\section{Core Concepts of Flexion Dynamics}
+
+Flexion Dynamics is built upon a set of foundational concepts that describe the nature of structural motion and provide the language of the discipline. These concepts establish how deviation is measured, how dynamics operate, and how stability and instability emerge in complex systems.
+
+\subsection{Structural State}
+Every system possesses an internal structural state determined by its parameters, relationships, or organizational configuration. This state may be symmetric or asymmetric. Flexion Dynamics focuses on how the structural state evolves over time.
+
+\subsection{Structural Deviation $\Delta$}
+Structural deviation $\Delta$ is the fundamental quantity of the theory.  
+It represents how far a system is from its structural symmetry point.  
+Deviation can be one-dimensional or multidimensional:
+\[
+    \Delta \in \mathbb{R}^n
+\]
+for some dimension $n$ defining the structure.
+
+\subsection{Flexion Symmetry Index (FXI)}
+The Flexion Symmetry Index is a monotonic function of deviation:
+\[
+    FXI = F(\Delta)
+\]
+FXI provides a scalar indicator of the structural condition:
+\begin{itemize}
+    \item $FXI = 1$ --- structural symmetry,
+    \item $FXI > 1$ --- expansive or asymmetric state,
+    \item $FXI < 1$ --- contractive or compressed state.
+\end{itemize}
+
+\subsection{Contractive Dynamics (Flexionization)}
+Contractive dynamics describe physical, biological, or computational processes in which deviation decreases:
+\[
+    |\Delta(t+1)| < |\Delta(t)|
+\]
+The system moves toward symmetry, balance, and stability.
+
+\subsection{Expansive Dynamics (Deflexionization)}
+Expansive dynamics describe processes where deviation increases:
+\[
+    |\Delta(t+1)| > |\Delta(t)|
+\]
+The system moves away from symmetry, entering states of rising asymmetry and instability.
+
+\subsection{Bidirectionality of Structural Motion}
+All structural motion can be expressed in two directions:
+\begin{itemize}
+    \item toward symmetry (contractive),
+    \item away from symmetry (expansive).
+\end{itemize}
+This duality forms the heart of Flexion Dynamics.
+
+\subsection{Flexion Flow}
+Flexion Flow is the trajectory of deviation over time:
+\[
+    \{\Delta(t)\} = \Delta(0), \Delta(1), \Delta(2), \ldots
+\]
+It is the central dynamic object of the discipline, describing how structural motion unfolds.
+
+\subsection{Symmetry Point}
+The symmetry point ($\Delta = 0$) is the ideal structural state with dual roles:
+\begin{itemize}
+    \item an attractor under contractive dynamics,
+    \item a repeller under expansive dynamics.
+\end{itemize}
+
+\subsection{Structural Limits}
+All systems have structural boundaries:
+\[
+    \Delta_{\min} \leq \Delta \leq \Delta_{\max}
+\]
+Approaching these limits may cause:
+\begin{itemize}
+    \item saturation,
+    \item regime changes,
+    \item loss of structural function,
+    \item critical transitions.
+\end{itemize}
+
+These core concepts form the theoretical basis for the axioms and mathematical framework developed in subsequent sections.
+
+
+\section{Axioms of Flexion Dynamics}
+
+The axioms of Flexion Dynamics establish the formal foundation of the discipline.  
+They define the basic rules that govern structural deviation, dynamic behavior, and the bidirectional nature of structural motion across all systems.
+
+\subsection{Axiom 1: Admissible Structural State}
+A system always exists within a well-defined domain of admissible structural states.  
+All parameters describing the structural state must be valid and continuous within this domain.  
+A system cannot exist outside its admissible region.
+
+\subsection{Axiom 2: Existence of Structural Deviation}
+Every system possesses a structural deviation $\Delta$, representing its departure from symmetry.  
+The deviation must be measurable, well-defined, and capable of both increase and decrease.
+
+\subsection{Axiom 3: Structural Symmetry Index}
+For every structural state, there exists a monotonic indicator $FXI = F(\Delta)$ that characterizes the system’s symmetry or asymmetry.  
+The index must be defined for all admissible values of deviation.
+
+\subsection{Axiom 4: Bidirectional Dynamics}
+A system may evolve in one of two structural directions:
+\begin{itemize}
+    \item contractive dynamics (toward symmetry),
+    \item expansive dynamics (away from symmetry).
+\end{itemize}
+This bidirectionality is a fundamental principle of structural motion.
+
+\subsection{Axiom 5: Continuity of Structural Motion}
+Structural deviation evolves continuously over time.  
+No abrupt jumps, discontinuities, or undefined transitions in $\Delta$ or $FXI$ are permitted.  
+Even if the regime changes, the motion remains continuous.
+
+\subsection{Axiom 6: Existence of Structural Operators}
+For any system, there exist two operators that define structural evolution:
+\begin{itemize}
+    \item $E$ --- the contractive operator,
+    \item $\bar{E}$ --- the expansive operator.
+\end{itemize}
+Both operators act on the same deviation space.
+
+\subsection{Axiom 7: Determinism of Structural Dynamics}
+The current deviation $\Delta(t)$ fully determines the next structural state.  
+A system cannot change direction randomly; the selection of contractive or expansive dynamics follows from structural conditions and context.
+
+\subsection{Axiom 8: Structural Limits}
+All systems possess structural boundaries:
+\[
+    \Delta_{\min} \leq \Delta \leq \Delta_{\max}
+\]
+Approaching these boundaries may lead to saturation, slowing, regime shifts, or structural degradation.
+
+\subsection{Axiom 9: Universality of Structural Principles}
+The same structural principles apply to all systems---physical, biological, computational, economic, or social.  
+The domain may differ, but the structural mechanisms are universal.
+
+\subsection{Axiom 10: Insufficiency of Unidirectional Models}
+Neither contractive nor expansive dynamics alone can describe a structure completely.  
+Only the bidirectional combination of both forms the complete system of Flexion Dynamics.
+
+These axioms form the conceptual and mathematical backbone of the discipline, enabling the construction of the unified dynamic framework presented in the following sections.
+
+
+\section{Mathematical Structure of Flexion Dynamics}
+
+The mathematical structure of Flexion Dynamics formalizes how a system transitions from one structural state to another.  
+Two symmetric operators---the contractive operator $E$ and the expansive operator $\bar{E}$---act on the same deviation variable $\Delta$.  
+Together, they define the bidirectional dynamics that drive structural evolution.
+
+\subsection{Structural Space}
+Let a system have a structural state $S$ with deviation:
+\[
+    \Delta = \Delta(S)
+\]
+The deviation may be one-dimensional or multidimensional:
+\[
+    \Delta \in \mathbb{R}^n
+\]
+where $n$ is the dimensionality of the structure.
+
+\subsection{Flexion Symmetry Index (FXI)}
+FXI is a monotonic function of deviation:
+\[
+    FXI = F(\Delta)
+\]
+Its values characterize the system’s structural condition:
+\begin{itemize}
+    \item $FXI = 1$ --- symmetry,
+    \item $FXI > 1$ --- expansive or asymmetric state,
+    \item $FXI < 1$ --- contractive state.
+\end{itemize}
+
+\subsection{Contractive Operator $E$}
+Contractive dynamics (Flexionization) are defined by:
+\[
+    \Delta(t+1) = E(\Delta(t))
+\]
+with the contractive condition:
+\[
+    |E(\Delta)| < |\Delta| \quad \text{for all } \Delta \neq 0
+\]
+This guarantees that deviation decreases, moving the system toward symmetry.
+
+\subsection{Expansive Operator $\bar{E}$}
+Expansive dynamics (Deflexionization) are defined by:
+\[
+    \Delta(t+1) = \bar{E}(\Delta(t))
+\]
+with the expansive condition:
+\[
+    |\bar{E}(\Delta)| > |\Delta| \quad \text{for all } \Delta \neq 0
+\]
+This ensures that deviation increases, moving the system away from symmetry.
+
+\subsection{Bidirectional Super-Operator $\mathcal{E}$}
+Both regimes are unified through the bidirectional super-operator:
+\[
+    \mathcal{E}(\Delta, \sigma) =
+    \begin{cases}
+        E(\Delta), & \sigma = -1 \\
+        \bar{E}(\Delta), & \sigma = +1
+    \end{cases}
+\]
+The sign parameter $\sigma$ determines the direction of structural motion.
+
+\subsection{Flexion Flow Equation}
+The evolution of deviation over time is expressed as:
+\[
+    \Delta(t+1) = \mathcal{E}(\Delta(t), \sigma(t))
+\]
+The sequence $\{\Delta(t)\}$ constitutes the \textbf{Flexion Flow}---the central dynamic object of the discipline.
+
+\subsubsection*{Dynamic Behavior of $\sigma(t)$}
+The directional parameter may be:
+\begin{itemize}
+    \item constant (pure contractive or expansive regime),
+    \item time-varying,
+    \item state-dependent,
+    \item externally determined.
+\end{itemize}
+
+\subsection{Symmetry Point}
+The ideal point of structural symmetry is:
+\[
+    \Delta = 0
+\]
+Its dynamic roles differ by regime:
+\begin{itemize}
+    \item $E(0) = 0$: attractor in contractive dynamics,
+    \item $\bar{E}(0) = 0$: repeller in expansive dynamics.
+\end{itemize}
+
+\subsection{Structural Limits}
+Deviation is bounded within:
+\[
+    \Delta_{\min} \leq \Delta \leq \Delta_{\max}
+\]
+Approaching these boundaries may lead to:
+\begin{itemize}
+    \item saturation,
+    \item slowed dynamics,
+    \item regime transitions,
+    \item structural degradation.
+\end{itemize}
+
+\subsection{Complete Flexion Dynamics Model}
+The full model of structural motion is:
+\[
+    \Delta(t+1) =
+    \begin{cases}
+        E(\Delta(t)), & \text{if the motion is stabilizing} \\
+        \bar{E}(\Delta(t)), & \text{if the motion is destabilizing}
+    \end{cases}
+\]
+This unified form describes stabilization, divergence, adaptation, oscillation, and collapse using a single deviation variable $\Delta$ and two symmetric operators.
+
+
+\section{Flexion Flow}
+
+Flexion Flow is the central dynamic construct of Flexion Dynamics.  
+While the operators $E$ and $\bar{E}$ define individual steps of structural evolution, Flexion Flow represents the \textit{entire trajectory} of deviation over time.  
+It describes how a structure moves, stabilizes, destabilizes, adapts, diverges, or approaches collapse within its deviation space.
+
+\subsection{Definition of Flexion Flow}
+Flexion Flow is the sequence of deviations generated by repeated application of the bidirectional super-operator:
+\[
+    \Delta(0), \Delta(1), \Delta(2), \ldots
+\]
+where:
+\[
+    \Delta(t+1) = \mathcal{E}(\Delta(t), \sigma(t))
+\]
+Thus, Flexion Flow is not an operator itself; it is the \textbf{trajectory} produced by applying $E$ or $\bar{E}$ over time.
+
+\subsection{Types of Flexion Flow}
+
+\subsubsection*{Contractive Flexion Flow}
+\[
+    \Delta(t+1) = E(\Delta(t))
+\]
+Characteristics:
+\begin{itemize}
+    \item deviation decreases,
+    \item structure moves toward symmetry,
+    \item $FXI \to 1$,
+    \item $\Delta = 0$ acts as an attractor.
+\end{itemize}
+
+\subsubsection*{Expansive Flexion Flow}
+\[
+    \Delta(t+1) = \bar{E}(\Delta(t))
+\]
+Characteristics:
+\begin{itemize}
+    \item deviation increases,
+    \item asymmetry grows,
+    \item $FXI$ moves away from 1,
+    \item $\Delta = 0$ acts as a repeller.
+\end{itemize}
+
+\subsection{Flexion Flow as a Trajectory}
+Flexion Flow is expressed as:
+\[
+    \{\Delta(t)\} = \Delta(0), \Delta(1), \Delta(2), \ldots
+\]
+Each state depends on:
+\begin{itemize}
+    \item the previous deviation,
+    \item the active operator,
+    \item the directional parameter $\sigma(t)$.
+\end{itemize}
+
+The trajectory reveals:
+\begin{itemize}
+    \item direction of motion,
+    \item speed of structural change,
+    \item distance from symmetry,
+    \item turning points and thresholds,
+    \item transitions between stability and instability.
+\end{itemize}
+
+\subsection{Role of the Symmetry Point}
+The symmetry point $\Delta = 0$ has opposite dynamic roles:
+\begin{itemize}
+    \item attractor under contractive dynamics,
+    \item repeller under expansive dynamics.
+\end{itemize}
+This dual nature is fundamental to Flexion Dynamics.
+
+\subsection{Transitions Between Flows}
+A system may switch between contractive and expansive regimes when:
+\[
+    \sigma(t) \neq \sigma(t+1)
+\]
+Such transitions create complex trajectories involving:
+\begin{itemize}
+    \item oscillations between stability and instability,
+    \item approach and retreat from symmetry,
+    \item threshold crossings,
+    \item entry into critical zones.
+\end{itemize}
+
+\subsection{Geometry of Flexion Flow}
+The shape of Flexion Flow depends on the structure of $\Delta$:
+\begin{itemize}
+    \item in 1D systems, the flow is a line,
+    \item in higher dimensions, curves, surfaces, or multi-component paths emerge.
+\end{itemize}
+
+Flow geometry may exhibit:
+\begin{itemize}
+    \item curvature,
+    \item acceleration or deceleration,
+    \item bending,
+    \item branching,
+    \item regime-induced changes.
+\end{itemize}
+
+\subsection{Universality of Flexion Flow}
+Flexion Flow exists in all systems with measurable deviation.  
+Regardless of whether the cause is physical, informational, biological, economic, computational, or social, the \textit{form} of movement is always expressible as a trajectory $\Delta(t)$.
+
+\subsection{Significance of Flexion Flow}
+Flexion Flow unifies:
+\begin{itemize}
+    \item structural deviation,
+    \item dynamic operators,
+    \item regime selection,
+    \item stability and instability,
+    \item long-term system behavior.
+\end{itemize}
+It transforms Flexion Dynamics into a coherent dynamic discipline capable of describing any structural evolution.
+
+
+\section{Critical States and Structural Boundaries}
+
+Flexion Dynamics examines not only typical structural evolution, but also the behavior of systems near their structural limits.  
+Critical states arise when deviation $\Delta$ approaches extreme values or when Flexion Flow enters regions where stability becomes highly sensitive.  
+Understanding these states is essential for modeling collapse, resilience, thresholds, and irreversible transitions.
+
+\subsection{Admissible Structural Domain}
+Every system operates within a bounded deviation domain:
+\[
+    \Delta_{\min} \leq \Delta \leq \Delta_{\max}
+\]
+Outside this domain, the system loses structural integrity or ceases to function.  
+Within it, the structure may be stable, unstable, near a threshold, or entering a critical region.
+
+\subsection{Stability Zone}
+The stability zone is characterized by:
+\begin{itemize}
+    \item $\Delta$ sufficiently close to $0$,
+    \item dominance of contractive dynamics,
+    \item $FXI \to 1$,
+    \item high resilience to perturbations.
+\end{itemize}
+In this region, the contractive operator $E$ can correct small deviations efficiently.
+
+\subsection{Rising Asymmetry Zone}
+As deviation increases, the system may enter a region where:
+\begin{itemize}
+    \item asymmetry grows,
+    \item expansive forces begin to dominate,
+    \item $FXI$ moves away from 1,
+    \item corrective influences weaken.
+\end{itemize}
+This zone represents rising instability and growing structural tension.
+
+\subsection{Critical Zone}
+A critical zone occurs when $\Delta$ approaches its structural boundaries $\Delta_{\min}$ or $\Delta_{\max}$.  
+In this region:
+\begin{itemize}
+    \item expansive dynamics often accelerate,
+    \item contractive dynamics become insufficient,
+    \item small perturbations lead to large changes in $\Delta$,
+    \item structural resilience sharply decreases.
+\end{itemize}
+The critical zone frequently precedes collapse or irreversible transitions.
+
+\subsection{Threshold Effects}
+Threshold effects occur when small changes in deviation produce disproportionately large effects.  
+Typical manifestations include:
+\begin{itemize}
+    \item regime switching when $\sigma$ flips sign,
+    \item sudden increases in flow speed,
+    \item loss of contractive capacity,
+    \item abrupt qualitative change in system behavior.
+\end{itemize}
+
+\subsection{Point of No Return}
+The point of no return is a deviation beyond which contractive dynamics can no longer restore the system:
+\[
+    \Delta > \Delta_{\text{nr}}
+\]
+After this point:
+\begin{itemize}
+    \item even if $\sigma$ returns to $-1$, 
+    \item even if $E$ becomes active,
+\end{itemize}
+the system continues to diverge.  
+Structural recovery is no longer possible.
+
+\subsection{Structural Collapse}
+Structural collapse occurs when:
+\[
+    \Delta < \Delta_{\min} \quad \text{or} \quad \Delta > \Delta_{\max}
+\]
+At this stage:
+\begin{itemize}
+    \item the system loses functional identity,
+    \item Flexion Flow becomes undefined,
+    \item structural behavior ceases to be meaningful.
+\end{itemize}
+
+\subsection{Significance of Critical States}
+Analyzing critical states allows Flexion Dynamics to:
+\begin{itemize}
+    \item predict transitions between stability and instability,
+    \item identify early warning indicators,
+    \item evaluate resilience and fragility,
+    \item understand collapse mechanisms,
+    \item develop models of stress, risk, and threshold behavior.
+\end{itemize}
+
+Critical states and structural boundaries provide key insights into the limits of system viability and the mechanisms that drive irreversible structural change.
+
+
+\section{Applications of Flexion Dynamics}
+
+Flexion Dynamics is a universal structural framework applicable across a wide spectrum of scientific, biological, technical, computational, social, and economic systems.  
+Because the discipline analyzes the \textit{form} of structural motion rather than domain-specific content, it serves as a unifying language for understanding stability, instability, adaptation, divergence, and collapse.
+
+\subsection{Economic and Financial Systems}
+In economics and finance, Flexion Dynamics provides a structural perspective on:
+\begin{itemize}
+    \item market cycles and transitions,
+    \item accumulation and dissipation of risk,
+    \item volatility regimes,
+    \item bubbles and collapses,
+    \item stabilization or destabilization dynamics,
+    \item systemic resilience under shocks.
+\end{itemize}
+Risk engines, such as FRE, naturally emerge as applications of Flexion Flow and structural deviation analysis.
+
+\subsection{Engineering and Technical Systems}
+For engineered systems, Flexion Dynamics explains:
+\begin{itemize}
+    \item feedback and control processes,
+    \item mechanical and electronic stability,
+    \item structural fatigue and degradation,
+    \item reliability and failure pathways,
+    \item behavior of robots and autonomous systems.
+\end{itemize}
+Control architectures based on contractive and expansive behavior map cleanly to the operators $E$ and $\bar{E}$.
+
+\subsection{Biological and Ecological Systems}
+Biological and ecological processes inherently exhibit bidirectional structural dynamics:
+\begin{itemize}
+    \item growth and decay cycles,
+    \item population fluctuations,
+    \item homeostasis and imbalance,
+    \item tissue regeneration and degeneration,
+    \item ecological stability or collapse,
+    \item evolutionary adaptation.
+\end{itemize}
+Flexion Flow models these dynamics as natural movements toward or away from structural symmetry.
+
+\subsection{Social and Organizational Systems}
+Social and organizational systems can be viewed through the lens of deviation and structural tension:
+\begin{itemize}
+    \item formation and dissolution of groups,
+    \item stability of institutions,
+    \item spread of behaviors and norms,
+    \item escalation and resolution of conflicts,
+    \item organizational resilience or breakdown.
+\end{itemize}
+Flexion Dynamics enables a formal structural analysis of social processes.
+
+\subsection{Information and Computational Systems}
+In computational contexts, Flexion Dynamics applies to:
+\begin{itemize}
+    \item algorithmic stability,
+    \item convergence of iterative procedures,
+    \item load distribution and overload,
+    \item distributed system coordination,
+    \item information flow stability,
+    \item evolution of system architectures.
+\end{itemize}
+Any system with deviation from an ideal configuration is amenable to Flexion Flow analysis.
+
+\subsection{Physical Materials and Structural Mechanics}
+Materials and mechanical systems exhibit structural deviation under stress:
+\begin{itemize}
+    \item deformation and strain,
+    \item accumulation of microdamage,
+    \item crack propagation,
+    \item fatigue and collapse,
+    \item threshold-induced failure.
+\end{itemize}
+Contractive and expansive regimes directly correspond to material contraction or expansion.
+
+\subsection{Artificial Intelligence and Behavioral Models}
+Flexion Dynamics provides a novel structural interpretation of internal AI behavior:
+\begin{itemize}
+    \item convergence and divergence of learning processes,
+    \item gradient explosion or vanishing states,
+    \item stability of neural architectures,
+    \item mode collapse and imbalance,
+    \item long-term evolution of adaptive models,
+    \item structural interpretation of loss landscapes.
+\end{itemize}
+Viewing a model as a structure with deviation $\Delta$ and symmetry index $FXI$ allows Flexion Dynamics to unify learning stability, internal adaptation, and optimization flow.
+
+\subsection{Universality of Application}
+Flexion Dynamics applies to any system where deviation exists and evolution is possible.  
+It provides a single structural language for analyzing:
+\begin{itemize}
+    \item stabilization,
+    \item adaptation,
+    \item escalation,
+    \item collapse,
+    \item resilience,
+    \item and structural transformation.
+\end{itemize}
+This universality is what positions Flexion Dynamics as a foundational framework in the study of complex systems.
+
+
+\section{Relation Between Flexion Dynamics, Flexionization, and Deflexionization}
+
+Flexion Dynamics unifies two symmetric structural theories---Flexionization and Deflexionization---into a single comprehensive discipline.  
+These theories represent opposite but complementary directions of structural motion.  
+Flexion Dynamics provides the mathematical architecture that combines both into one dynamic framework governed by deviation $\Delta$, the operators $E$ and $\bar{E}$, and the bidirectional super-operator $\mathcal{E}$.
+
+\subsection{Flexionization as the Contractive Branch}
+Flexionization describes stabilizing motion in which deviation decreases:
+\[
+    |\Delta(t+1)| < |\Delta(t)|
+\]
+Its key characteristics include:
+\begin{itemize}
+    \item movement toward symmetry,
+    \item reduction of structural tension,
+    \item convergence of internal parameters,
+    \item resilience and recovery,
+    \item $FXI \to 1$.
+\end{itemize}
+The operator $E$ defines the mathematical form of contractive dynamics.
+
+\subsection{Deflexionization as the Expansive Branch}
+Deflexionization describes destabilizing motion in which deviation increases:
+\[
+    |\Delta(t+1)| > |\Delta(t)|
+\]
+Its characteristics include:
+\begin{itemize}
+    \item growth of asymmetry,
+    \item weakening of structural cohesion,
+    \item rising instability,
+    \item escalation toward structural limits,
+    \item $FXI$ moving away from $1$.
+\end{itemize}
+The operator $\bar{E}$ defines the mathematical form of expansive dynamics.
+
+\subsection{Compatibility of Both Branches}
+Although contractive and expansive dynamics describe opposite movements, they share:
+\begin{itemize}
+    \item the same deviation space $\Delta$,
+    \item the same symmetry index $FXI$,
+    \item the same structural limits,
+    \item the same set of axioms,
+    \item the same super-operator $\mathcal{E}$,
+    \item the same framework of Flexion Flow.
+\end{itemize}
+Thus, Flexionization and Deflexionization are not separate theories but two modes of one unified structural mechanism.
+
+\subsection{Unifying Role of the Super-Operator $\mathcal{E}$}
+The bidirectional super-operator is the core unifying construct:
+\[
+    \mathcal{E}(\Delta, \sigma) =
+    \begin{cases}
+        E(\Delta), & \sigma = -1 \\
+        \bar{E}(\Delta), & \sigma = +1
+    \end{cases}
+\]
+It selects the active dynamic regime and allows both branches to exist within a single formal equation:
+\[
+    \Delta(t+1) = \mathcal{E}(\Delta(t), \sigma(t))
+\]
+
+\subsection{Flexion Flow as the Connection Between the Branches}
+Flexion Flow is the dynamic bridge that integrates the two directional branches.  
+It describes how a structure:
+\begin{itemize}
+    \item stabilizes in contractive phases,
+    \item destabilizes in expansive phases,
+    \item transitions between regimes,
+    \item crosses thresholds,
+    \item moves toward or away from symmetry,
+    \item enters or exits critical states.
+\end{itemize}
+The full trajectory $\{\Delta(t)\}$ is the central unifying element of the entire discipline.
+
+\subsection{Flexion Dynamics as a Supersystem}
+Flexion Dynamics acts as a supersystem by:
+\begin{itemize}
+    \item integrating both directional theories,
+    \item establishing shared mathematical foundations,
+    \item providing universal principles,
+    \item enabling cross-domain application,
+    \item formalizing structural duality,
+    \item describing complete structural evolution.
+\end{itemize}
+
+\subsection{Significance of the Integration}
+The integration of Flexionization and Deflexionization within Flexion Dynamics enables:
+\begin{itemize}
+    \item modeling of full structural life cycles,
+    \item prediction of stability and collapse,
+    \item analysis of dual-phase processes,
+    \item unified risk and resilience modeling,
+    \item deeper understanding of complex system behavior.
+\end{itemize}
+
+The result is a complete, symmetric, and universal theory of structural motion.
+
+
+\section{Philosophical Foundations of Flexion Dynamics}
+
+Although Flexion Dynamics is a mathematically rigorous discipline, its structure is grounded in deep philosophical principles about the nature of change, symmetry, instability, and structural evolution.  
+These principles explain why the framework is universal and why it applies across physical, biological, computational, social, and conceptual systems.
+
+\subsection{Principle of Structural Duality}
+Every structure embodies two opposing yet complementary forces:
+\begin{itemize}
+    \item the tendency toward symmetry and order,
+    \item the tendency toward asymmetry and disorder.
+\end{itemize}
+Flexion Dynamics formalizes this duality as contractive dynamics ($E$) and expansive dynamics ($\bar{E}$).
+
+\subsection{Symmetry as an Ideal State}
+The symmetry point ($\Delta = 0$) represents an ideal structural configuration with minimal deviation.  
+However, Flexion Dynamics does not treat symmetry as a static endpoint, but as a dynamic reference point toward or away from which structures continually move.
+
+\subsection{Asymmetry as the Driver of Change}
+Asymmetry---captured by deviation $\Delta$---is what initiates movement and transformation.  
+Without asymmetry:
+\begin{itemize}
+    \item no adaptation could occur,
+    \item no instability could arise,
+    \item no evolution or learning could unfold,
+    \item no structure could change.
+\end{itemize}
+
+\subsection{Balance Between Order and Breakdown}
+Flexion Dynamics assumes that no system remains entirely contractive or entirely expansive.  
+Real structural behavior consists of alternating phases of:
+\begin{itemize}
+    \item restoration and stabilization,
+    \item escalation and divergence,
+    \item adaptation and loss,
+    \item decay and recovery.
+\end{itemize}
+This dynamic balance defines structural life cycles.
+
+\subsection{Threshold Transitions as Transformative Moments}
+A structure reveals its deepest properties at threshold moments where:
+\begin{itemize}
+    \item small changes in $\Delta$ produce large effects,
+    \item the directional parameter $\sigma$ flips sign,
+    \item stability suddenly collapses,
+    \item new dynamic regimes emerge.
+\end{itemize}
+
+\subsection{Inevitability of Change}
+Flexion Dynamics assumes:
+\begin{itemize}
+    \item no structure is static,
+    \item any deviation causes motion,
+    \item motion generates new deviation,
+    \item change cannot be suppressed indefinitely.
+\end{itemize}
+Every system is always in motion; Flexion Flow is an inherent property of structural existence.
+
+\subsection{Unity of Opposites}
+Contractive and expansive dynamics form a unified whole, analogous to:
+\begin{itemize}
+    \item growth and decay,
+    \item order and chaos,
+    \item yin and yang,
+    \item synthesis and dissolution,
+    \item adaptation and collapse.
+\end{itemize}
+
+\subsection{Structure as a Living Process}
+Flexion Dynamics views structure not as a static object, but as a living process that:
+\begin{itemize}
+    \item changes,
+    \item adapts,
+    \item destabilizes,
+    \item recovers,
+    \item transforms.
+\end{itemize}
+Structure is not a fixed entity but a continuous flow of deviation.
+
+\subsection{Primacy of Dynamics Over Static Essence}
+A central philosophical statement of the discipline is:
+\begin{quote}
+    ``Structures are defined not by what they are, but by how they change.''
+\end{quote}
+
+Motion is more fundamental than state.  
+Deviation is more fundamental than configuration.  
+The trajectory is more fundamental than the point.
+
+\subsection{Universal Human and Scientific Relevance}
+The philosophical foundations of Flexion Dynamics reflect universal patterns observed in:
+\begin{itemize}
+    \item biological life cycles,
+    \item social and organizational evolution,
+    \item market behavior,
+    \item computational learning,
+    \item ecological resilience,
+    \item technological development.
+\end{itemize}
+
+Flexion Dynamics provides both a scientific and philosophical model of structural transformation, capturing the universal logic of stability, divergence, adaptation, and collapse.
+
+\section{Formal Definition of Flexion Dynamics}
+
+Flexion Dynamics is formally defined as a scientific discipline that describes the evolution of structural systems through the bidirectional motion of deviation.  
+It provides a unified mathematical framework that integrates stabilizing and destabilizing processes via two symmetric operators---the contractive operator $E$ and the expansive operator $\bar{E}$---governed by the directional parameter $\sigma$.  
+The central dynamic object of the discipline is the \textbf{Flexion Flow}, the trajectory of deviation $\Delta(t)$ through time.
+
+\subsection{Formal Components}
+Flexion Dynamics consists of the following core components:
+
+\begin{enumerate}
+    \item \textbf{Structural Deviation}  
+    A measurable quantity:
+    \[
+        \Delta \in \mathbb{R}^n
+    \]
+    representing the system’s deviation from symmetry.
+
+    \item \textbf{Flexion Symmetry Index}  
+    A monotonic function:
+    \[
+        FXI = F(\Delta)
+    \]
+    describing the structural condition.
+
+    \item \textbf{Two Fundamental Operators}  
+    \begin{itemize}
+        \item $E$: a contractive operator ($|\!E(\Delta)\!| < |\Delta|$),  
+        \item $\bar{E}$: an expansive operator ($|\!\bar{E}(\Delta)\!| > |\Delta|$).
+    \end{itemize}
+
+    \item \textbf{Bidirectional Super-Operator}  
+    Defined as:
+    \[
+        \mathcal{E}(\Delta, \sigma) =
+        \begin{cases}
+            E(\Delta), & \sigma = -1 \\
+            \bar{E}(Delta), & \sigma = +1
+        \end{cases}
+    \]
+
+    \item \textbf{Flexion Flow}  
+    Structural motion given by:
+    \[
+        \Delta(t+1) = \mathcal{E}(\Delta(t), \sigma(t))
+    \]
+
+    \item \textbf{Symmetry Point}  
+    The ideal structural state:
+    \[
+        \Delta = 0
+    \]
+    which acts as:
+    \begin{itemize}
+        \item an attractor in contractive dynamics,
+        \item a repeller in expansive dynamics.
+    \end{itemize}
+
+    \item \textbf{Admissible Structural Domain}  
+    Bounded limits:
+    \[
+        \Delta_{\min} \leq \Delta \leq \Delta_{\max}
+    \]
+    defining structural viability.
+\end{enumerate}
+
+\subsection{Primary Formal Definition}
+Flexion Dynamics is the theory of bidirectional structural motion in which the evolution of deviation $\Delta$ is governed by the super-operator $\mathcal{E}$:
+\[
+    \Delta(t+1) = \mathcal{E}(\Delta(t), \sigma(t))
+\]
+The resulting sequence $\{\Delta(t)\}$ constitutes the structure’s Flexion Flow.
+
+\subsection{Extended Formal Definition}
+Flexion Dynamics is a unified framework for describing how complex systems:
+\begin{itemize}
+    \item stabilize or destabilize,
+    \item converge or diverge,
+    \item adapt or degrade,
+    \item transition across thresholds,
+    \item approach or escape structural symmetry.
+\end{itemize}
+It synthesizes the principles of Flexionization and Deflexionization into a single dynamic theory.
+
+\subsection{Completeness of the Definition}
+The formal definition specifies:
+\begin{itemize}
+    \item the structural space,
+    \item operators and regimes,
+    \item dynamic rules,
+    \item directional selection,
+    \item structural boundaries,
+    \item universal applicability.
+\end{itemize}
+
+Flexion Dynamics is therefore a complete and coherent scientific discipline comparable to systems theory, information theory, and dynamical systems.
+
+\section{Conclusion}
+
+Flexion Dynamics establishes a unified scientific discipline that integrates two symmetric branches of structural evolution---Flexionization and Deflexionization---into a single coherent framework.  
+By describing structural deviation $\Delta$, the Flexion Symmetry Index (FXI), the operators $E$ and $\bar{E}$, the directional parameter $\sigma$, and the bidirectional super-operator $\mathcal{E}$, the theory provides a complete and consistent foundation for understanding structural motion.
+
+At the center of this discipline lies \textbf{Flexion Flow}, the trajectory of deviation that captures how systems evolve over time.  
+Flexion Flow unifies stabilizing and destabilizing processes and enables the analysis of:
+\begin{itemize}
+    \item structural stability and resilience,
+    \item divergence and collapse,
+    \item threshold transitions and critical zones,
+    \item adaptation and degradation,
+    \item long-term structural behavior across domains.
+\end{itemize}
+
+Because Flexion Dynamics focuses on the \textit{form} of structural motion rather than domain-specific properties, it serves as a universal language for analyzing complex systems in physics, biology, computation, engineering, economics, and social dynamics.  
+Its dual-operator structure, boundary-based reasoning, and trajectory-centered perspective allow it to model entire structural life cycles---from emergence and stabilization to escalation and collapse.
+
+Version 1.1 (International Edition) presents Flexion Dynamics in complete articulated form suitable for academic publication, scientific dissemination, and interdisciplinary research.  
+The framework provides a foundation for:
+\begin{itemize}
+    \item further theoretical expansion,
+    \item empirical validation,
+    \item computational simulation,
+    \item cross-domain applications,
+    \item and future developments of structural dynamic analysis.
+\end{itemize}
+
+Flexion Dynamics stands as a comprehensive, universal, and foundational discipline---a unified theory of structural motion.
+
+\appendix
+
+% ==========================================================
+% ====================== APPENDIX A ========================
+% ==========================================================
+
+\section*{Appendix A: Mathematical Notes}
+\addcontentsline{toc}{section}{Appendix A: Mathematical Notes}
+
+This appendix provides additional mathematical details and clarifications that support the formal structure of Flexion Dynamics. The material here is not required for conceptual understanding, but it offers deeper insight into the analytic foundations of deviation, operators, and flow behavior.
+
+\subsection*{A.1. Deviation as a Normed Quantity}
+Deviation $\Delta$ may be represented using any normed vector space:
+\[
+    \Delta = \| S - S_{\text{sym}} \|
+\]
+where $S_{\text{sym}}$ is the ideal symmetry state.  
+Common choices include:
+\begin{itemize}
+    \item Euclidean norm: $\|\cdot\|_2$,
+    \item Manhattan norm: $\|\cdot\|_1$,
+    \item Maximum norm: $\|\cdot\|_\infty$,
+    \item Arbitrary weighted norms depending on system structure.
+\end{itemize}
+
+\subsection*{A.2. Conditions for Contractive Dynamics}
+The operator $E$ is contractive if:
+\[
+    |E(\Delta)| < |\Delta| \quad \forall \Delta \neq 0
+\]
+Equivalent characterizations include:
+\begin{itemize}
+    \item Lipschitz constant $L_E < 1$,
+    \item contraction mapping principles,
+    \item Banach fixed point theorem (for $\Delta = 0$).
+\end{itemize}
+
+\subsection*{A.3. Conditions for Expansive Dynamics}
+The operator $\bar{E}$ is expansive if:
+\[
+    |\bar{E}(\Delta)| > |\Delta| \quad \forall \Delta \neq 0
+\]
+Equivalent forms include:
+\begin{itemize}
+    \item Lipschitz constant $L_{\bar{E}} > 1$,
+    \item geometric divergence,
+    \item repelling fixed point behavior.
+\end{itemize}
+
+\subsection*{A.4. Dynamic Stability and Instability}
+Under contractive dynamics:
+\[
+    \lim_{t \to \infty} \Delta(t) = 0
+\]
+Under expansive dynamics:
+\[
+    \lim_{t \to \infty} |\Delta(t)| = \infty
+\quad \text{or reaches } \Delta_{\max}
+\]
+
+\subsection*{A.5. Regime Switching and Directional Parameter}
+The directional parameter $\sigma(t)$ may follow:
+\begin{itemize}
+    \item deterministic rules,
+    \item external controls,
+    \item threshold-based triggers,
+    \item adaptive logic (state-dependent).
+\end{itemize}
+
+A simple deterministic example:
+\[
+    \sigma(t) =
+    \begin{cases}
+        -1, & FXI(t) \leq \theta \\
+        +1, & FXI(t) > \theta
+    \end{cases}
+\]
+
+\subsection*{A.6. Flexion Flow in Continuous Time}
+A continuous-time version of Flexion Flow may be expressed as:
+\[
+    \frac{d\Delta}{dt} = f(\Delta, \sigma)
+\]
+where the function $f$ serves as the continuous analogue of the operator $\mathcal{E}$.
+
+\vspace{1cm}
+
+% ==========================================================
+% ====================== APPENDIX B ========================
+% ==========================================================
+
+\section*{Appendix B: Example of Flexion Flow}
+\addcontentsline{toc}{section}{Appendix B: Example of Flexion Flow}
+
+To illustrate how Flexion Flow operates in practice, consider a simple one-dimensional structural system with initial deviation:
+\[
+    \Delta(0) = 1.20
+\]
+
+We define:
+\begin{itemize}
+    \item contractive operator: $E(\Delta) = 0.65\Delta$,
+    \item expansive operator: $\bar{E}(\Delta) = 1.30\Delta$,
+    \item threshold for switching: $\Delta = 0.25$.
+\end{itemize}
+
+\subsection*{B.1. Switching Rule}
+The directional parameter $\sigma(t)$ is defined as:
+\[
+    \sigma(t) =
+    \begin{cases}
+        -1, & \Delta(t) > 0.40 \\
+        +1, & \Delta(t) \leq 0.40
+    \end{cases}
+\]
+
+\subsection*{B.2. Flow Evolution}
+Starting with $\Delta(0) = 1.20$:
+
+\[
+\begin{aligned}
+    \Delta(1) &= E(1.20) = 0.78, \\
+    \Delta(2) &= E(0.78) = 0.507, \\
+    \Delta(3) &= E(0.507) = 0.3295, \\
+\end{aligned}
+\]
+
+At $\Delta(3) = 0.3295$ the threshold is crossed and the system switches into expansive mode:
+
+\[
+\begin{aligned}
+    \Delta(4) &= \bar{E}(0.3295) = 0.4284, \\
+    \Delta(5) &= \bar{E}(0.4284) = 0.5570, \\
+\end{aligned}
+\]
+
+The system begins diverging further from symmetry.
+
+\subsection*{B.3. Interpretation}
+This example demonstrates:
+\begin{itemize}
+    \item contractive movement toward symmetry,
+    \item crossing of structural threshold,
+    \item regime switching through $\sigma(t)$,
+    \item reversal into expansive trajectory,
+    \item early-stage divergence indicating rising instability.
+\end{itemize}
+
+Flexion Flow provides a clear, formal way to express full structural trajectories, including reversals, thresholds, and divergence.
+
+\end{document}

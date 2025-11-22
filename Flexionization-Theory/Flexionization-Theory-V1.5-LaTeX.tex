@@ -1,0 +1,743 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm, geometry, hyperref}
+\hypersetup{unicode=false}
+\geometry{margin=1in}
+
+\title{Flexionization \\ Formal Theory of Dynamic Quantitative Equilibrium}
+\author{}
+\date{2025}
+
+\begin{document}
+
+\title{Flexionization: Formal Theory of Dynamic Quantitative Equilibrium}
+\author{}
+\date{2025}
+\maketitle
+
+\begin{abstract}
+Flexionization is a formal model of dynamic quantitative equilibrium for systems in which the structure of an asset pool must remain balanced under an abstract stabilization rule. The theory defines a rigorous state space with synthetic pool mass $Q_p$, structural mass $Q_F$, structural deviation $\Delta$, and a structural equilibrium indicator (FXI). System dynamics are governed by an equilibrium operator $E$, which maps the current FXI to its target value at the next step and induces admissible adjustments of the underlying masses.
+
+Within this framework, we specify axioms for state admissibility, bounded transitions, and consistency of dynamics, and we derive conditions under which equilibrium exists, is unique, and is dynamically stable. We analyze both local and global behavior, including convergence properties under contractive equilibrium operators. The theory also identifies critical edge cases---such as asset unavailability, dynamic weights, and loss of monotonicity---where implementations may temporarily fall outside the model's domain of applicability.
+
+Flexionization is independent of market prices, trading strategies, or specific token mechanics. It is intended as a structural core that can be embedded into economic protocols, automated controllers, or engineered systems requiring predictable long-term balance of an asset pool.
+\end{abstract}
+
+\clearpage
+\tableofcontents
+
+\clearpage
+\section{Introduction}
+
+Flexionization is a theoretical framework for analyzing dynamic quantitative equilibrium in systems where the structure of an asset pool must remain balanced under an abstract stabilization rule. The approach formalizes a complete state space, a deviation measure, and an equilibrium indicator, together with a corrective operator that governs the system’s dynamics.
+
+The purpose of Flexionization is to provide a rigorous mathematical foundation for understanding how structural balance can be maintained independently of market price movements, trading behavior, or specific mechanisms used in economic protocols.
+
+This section introduces the motivation behind the model and outlines how Flexionization differs from classical economic, algorithmic, or automated-market-making approaches.
+
+\clearpage
+\section{Background and Model Motivation}
+
+Flexionization was developed to address a fundamental limitation in existing economic and algorithmic models: most systems depend directly on market prices, external behavior, or explicit trading rules. As a result, their stability and long-term behavior cannot be guaranteed mathematically.
+
+The Flexionization framework instead introduces a purely structural notion of equilibrium:
+
+\begin{itemize}
+\item independent of market prices,
+\item independent of external agents,
+\item independent of trading activity,
+\item defined only through internal system quantities.
+\end{itemize}
+
+This shift from price-based to structure-based modeling enables the analysis of system behavior under general corrective rules, providing a foundation for robust and predictable equilibrium mechanisms.
+
+Flexionization is not an AMM, not a rebasing mechanism, and not a token-pricing formula.  
+It is a formal, state-based dynamical model designed to sit underneath these systems as a mathematical core.
+
+\clearpage
+\section{Notation System}
+
+The following notation is used throughout Flexionization-Theory-V1.5.  
+It defines symbols for the state space, structural quantities, deviation, equilibrium indicator, and transition variables.
+
+\subsection*{Fundamental Quantities}
+\addcontentsline{toc}{subsection}{Fundamental Quantities}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{l|l|p{9cm}}
+\hline
+\textbf{Symbol} & \textbf{Domain} & \textbf{Description} \\ \hline
+$Q_p$ & $\mathbb{R}_+$ & Synthetic mass of the asset pool. \\
+$Q_F$ & $\mathbb{R}_+$ & Structural mass (internal issuance). \\
+$\Delta$ & $\mathbb{R}$ & Structural deviation, defined as $\Delta = Q_p - Q_F$. \\
+$q_i$ & $\mathbb{R}_+$ & Quantity of asset $i$ in the pool. \\
+$q$ & $\mathbb{R}^n$ & Vector of asset quantities. \\
+$W_i$ & $\mathbb{R}_+$ & Weight of asset $i$. \\ 
+$W$ & $\mathbb{R}^n$ & Weight vector. \\
+FXI & $\mathbb{R}_+$ & Structural equilibrium indicator. \\
+$F$ & $S \rightarrow \mathbb{R}_+$ & Mapping from a state to FXI. \\
+$E$ & $\mathbb{R}_+ \rightarrow \mathbb{R}_+$ & Equilibrium operator. \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection*{Dynamics and Transitions}
+\addcontentsline{toc}{subsection}{Dynamics and Transitions}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{l|l|p{9cm}}
+\hline
+\textbf{Symbol} & \textbf{Type} & \textbf{Description} \\ \hline
+$S$ & tuple & System state. \\
+$S_t$ & tuple & State at time $t$. \\
+$\Delta q_i$ & $\mathbb{R}$ & Change in quantity of asset $i$. \\
+$\Delta q$ & $\mathbb{R}^n$ & Vector of asset quantity changes. \\
+$\Delta Q_p$ & $\mathbb{R}$ & Change in synthetic pool mass. \\
+$\Delta Q_F$ & $\mathbb{R}$ & Change in structural mass. \\
+$L_q$ & $\mathbb{R}_+$ & Bound on $\Delta q$. \\
+$L_F$ & $\mathbb{R}_+$ & Bound on $\Delta Q_F$. \\
+$L_\Delta$ & $\mathbb{R}_+$ & Bound on $\Delta$. \\
+$M$ & $\mathbb{R}_+$ & Bound on FXI adjustment. \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection*{Other}
+\addcontentsline{toc}{subsection}{Other}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{l|p{10cm}}
+\hline
+\textbf{Symbol} & \textbf{Description} \\ \hline
+$\mathcal{U}$ & Set of internal parameters. \\
+contraction & Property of a contractive mapping. \\
+$E_1, E_2, E_3$ & Example equilibrium operators (see Appendix A). \\ \hline
+\end{tabular}
+\end{table}
+
+
+\clearpage
+\section{State Space}
+
+The Flexionization model is built on a formally defined state space that captures the structural configuration of the system at any moment in time. The state describes the quantities of assets held, the structural mass, and all variables that determine the system’s position relative to equilibrium.
+
+This section introduces the definition of the state, the properties of the state space, and the minimal requirements needed for the model to function correctly.
+
+\subsection{Definition of State}
+
+A system state $S$ is defined as a tuple:
+
+\[
+S = (Q_p, Q_F, \Delta, q, W, \mathcal{U})
+\]
+
+where:
+
+\begin{itemize}
+    \item $Q_p$ — synthetic mass of the asset pool,
+    \item $Q_F$ — structural mass (internal issuance),
+    \item $\Delta$ — structural deviation,
+    \item $q$ — vector of asset quantities,
+    \item $W$ — vector of asset weights,
+    \item $\mathcal{U}$ — internal parameters of the system.
+\end{itemize}
+
+This tuple fully characterizes the structural configuration of the system at time $t$.
+
+\subsection{The State Space}
+
+The complete state space $\mathcal{S}$ is defined as the set of all admissible states:
+
+\[
+\mathcal{S} = \{ (Q_p, Q_F, \Delta, q, W, \mathcal{U}) \}
+\]
+
+subject to the following constraints:
+
+\begin{itemize}
+    \item $Q_p \in \mathbb{R}_+$,
+    \item $Q_F \in \mathbb{R}_+$,
+    \item $\Delta \in \mathbb{R}$,
+    \item $q \in \mathbb{R}^n_+$,
+    \item $W \in \mathbb{R}^n_+$,
+    \item $\mathcal{U}$ is a valid internal parameter set.
+\end{itemize}
+
+The space $\mathcal{S}$ captures all structurally meaningful configurations of the system.
+
+\subsection{Minimal Requirements}
+
+For Flexionization to be well-defined, the state must satisfy the following minimal requirements:
+
+\begin{itemize}
+    \item The pool must contain at least one asset ($n \ge 1$).
+    \item All quantities and weights must be non-negative.
+    \item The deviation must be computable: $\Delta = Q_p - Q_F$.
+    \item The mapping $F(S)$ must be well-defined for all states.
+    \item The operator $E$ must be defined on all admissible FXI values.
+\end{itemize}
+
+These requirements ensure that the model operates consistently across all valid system configurations.
+
+\clearpage
+\section{Axiomatic Foundation}
+
+\subsection{Axiom 1 (State Space)}
+
+The system state $S$ must always belong to the admissible state space $\mathcal{S}$.  
+No transition, operator, or mapping may produce a state outside $\mathcal{S}$.
+
+
+\subsection{Axiom 2 (Structural Deviation)}
+
+The structural deviation is defined as:
+
+\[
+\Delta = Q_p - Q_F
+\]
+
+and must be computable for every admissible state $S \in \mathcal{S}$.
+
+\subsection{Axiom 3 (Equilibrium Indicator FXI)}
+
+The equilibrium indicator $FXI$ is a strictly monotonic mapping:
+
+\[
+FXI = F(S)
+\]
+
+which satisfies:
+
+\begin{itemize}
+    \item $FXI > 1$  — expanded structural state,
+    \item $FXI < 1$  — compressed structural state,
+    \item $FXI = 1$  — structural symmetry.
+\end{itemize}
+
+The function $F$ must be well-defined for all $S \in \mathcal{S}$.
+
+\subsection{Axiom 4 (Equilibrium Operator E)}
+
+The equilibrium operator
+
+\[
+E: \mathbb{R}_+ \rightarrow \mathbb{R}_+
+\]
+
+produces the corrected FXI value to be targeted at the next step.  
+The operator must be:
+
+\begin{itemize}
+    \item total (defined for all FXI),
+    \item internally consistent,
+    \item bounded in its action (see Axiom 9),
+    \item monotonic.
+\end{itemize}
+
+\subsection{Axiom 5 (Admissibility of Mass Adjustments)}
+
+The following adjustments must always be admissible:
+
+\[
+\Delta q_i,\quad \Delta Q_p,\quad \Delta Q_F
+\]
+
+subject to system limits:
+
+\[
+|\Delta q_i| \le L_q,\qquad |\Delta Q_p| \le L_F,\qquad |\Delta Q_F| \le L_F,
+\]
+
+ensuring that transitions remain structurally feasible.
+
+\subsection{Axiom 6 (Bounded Influence on $\Delta$)}
+
+Mass adjustments must induce a bounded change in the deviation:
+
+\[
+|\Delta| \le L_\Delta
+\]
+
+for some constant $L_\Delta > 0$.
+
+This prevents transitions from creating uncontrolled structural imbalance.
+
+\subsection{Axiom 7 (Continuity of Transitions)}
+
+The mapping from the current state $S_t$ to the next state $S_{t+1}$ must be continuous under all admissible transitions.
+
+There must be no discontinuous jumps in system structure.
+
+\subsection{Axiom 8 (Consistency of Dynamics)}
+
+The fundamental consistency rule:
+
+\[
+F(S_{t+1}) = E(F(S_t))
+\]
+
+must hold for all transitions.
+
+This ensures that the system dynamics match the intended corrective behavior.
+
+\subsection{Axiom 9 (Bounded FXI Dynamics)}
+
+The equilibrium indicator must remain bounded:
+
+\[
+FXI \le M
+\]
+
+for some constant $M > 1$.
+
+This prevents runaway growth of structural imbalance.
+
+\subsection{Axiom 10 (Existence of a Corrective Step)}
+
+For every state $S_t \in \mathcal{S}$, there must exist at least one admissible adjustment:
+
+\[
+(\Delta q, \Delta Q_F)
+\]
+
+such that:
+
+\[
+F(S_{t+1}) = E(F(S_t))
+\]
+
+This guarantees that structural equilibrium is always reachable.
+
+\clearpage
+\section{Formal Dynamics of Flexionization}
+
+The dynamics of Flexionization describe how the system transitions from one structural state to the next under the influence of the equilibrium operator $E$.
+
+This section formalizes the evolution of the deviation $\Delta$, the behavior of the equilibrium indicator $FXI$, and the conditions under which transitions remain correct and consistent.
+
+\subsection{Evolution of $\Delta$}
+
+The structural deviation evolves according to:
+
+\[
+\Delta_{t+1} = Q_{p,t+1} - Q_{F,t+1}
+\]
+
+where the next-step quantities satisfy the admissibility constraints in Axiom 5.
+
+The deviation change is determined by:
+
+\[
+\Delta_{t+1} - \Delta_t = (\Delta Q_p) - (\Delta Q_F)
+\]
+
+ensuring that all structural transitions remain mathematically well-defined.
+
+\subsection{FXI Dynamics}
+
+The equilibrium indicator evolves according to:
+
+\[
+FXI_{t+1} = E(FXI_t)
+\]
+
+This follows directly from Axiom 8, which enforces dynamic consistency.
+
+\begin{samepage}
+\subsection{Relationship Between $\Delta$ and FXI}
+
+Because $F$ is strictly monotonic and invertible on its domain:
+
+\[
+FXI = F(\Delta), \qquad \Delta = F^{-1}(FXI)
+\]
+
+Substituting into the FXI update rule yields:
+
+\[
+\Delta_{t+1} = F^{-1}(E(F(\Delta_t)))
+\]
+
+This equation defines the central dynamical law of the Flexionization model.
+\end{samepage}
+
+\subsection{Conditions for Dynamic Correctness}
+
+The dynamics of Flexionization are correct if and only if:
+
+\begin{itemize}
+    \item all transitions satisfy the admissibility bounds,
+    \item $F$ remains invertible over the entire transition path,
+    \item the operator $E$ remains well-defined at all intermediate FXI values,
+    \item no discontinuities occur during the transition.
+\end{itemize}
+
+These conditions guarantee that the system remains structurally consistent at every step.
+
+\clearpage
+\section{Flexionization Theorems}
+
+This section presents the key theoretical results of Flexionization.  
+Each theorem follows from the axioms and formal dynamics defined earlier.
+
+\subsection{Theorem 1 (Uniqueness of Equilibrium)}
+
+If the equilibrium indicator satisfies $E(1) = 1$ and $F$ is strictly monotonic,  
+then the structural equilibrium is unique.
+
+\textbf{Proof.}  
+If $FXI = 1$ corresponds to $\Delta = 0$, and $F$ is strictly monotonic, then no other value of $\Delta$ can map to $FXI = 1$.  
+Thus, the equilibrium is unique.  
+\hfill$\square$
+
+\subsection{Theorem 2 (Correctness of FXI Dynamics)}
+
+For any admissible state $S_t$:
+
+\[
+FXI_{t+1} = E(FXI_t)
+\]
+
+\textbf{Proof.}  
+This follows directly from Axiom 8 (Consistency of Dynamics), which defines the update rule for the equilibrium indicator.  
+\hfill$\square$
+
+\subsection{Theorem 3 (Corrective Transition)}
+
+If the operator $E$ satisfies $E(x) < x$ for $x > 1$ and $E(x) > x$ for $x < 1$,  
+then every transition reduces the deviation from equilibrium.
+
+\textbf{Proof.}  
+FXI moves monotonically toward 1, and since $\Delta = F^{-1}(FXI)$ with $F$ strictly monotonic,  
+the deviation must also move toward 0.  
+\hfill$\square$
+
+\subsection{Theorem 4 (Correctness of $\Delta$ Dynamics)}
+
+The deviation evolves as:
+
+\[
+\Delta_{t+1} = F^{-1}(E(F(\Delta_t)))
+\]
+
+\textbf{Proof.}  
+Follows from combining the FXI update rule with the invertibility of $F$.  
+\hfill$\square$
+
+\subsection{Theorem 5 (Local Monotonicity)}
+
+If $E$ is monotonic and locally contractive around equilibrium,  
+then the system is locally stable.
+
+\textbf{Proof.}  
+Contractive operators reduce distance to the fixed point.  
+\hfill$\square$
+
+\subsection{Theorem 6 (Stability of Equilibrium)}
+
+If $E$ is contractive over the entire domain,  
+then equilibrium is globally stable.
+
+\textbf{Proof.}  
+A global contraction mapping converges to a unique fixed point under iteration.  
+\hfill$\square$
+
+\subsection{Theorem 7 (Global Convergence)}
+
+If the conditions of Theorem 6 hold,  
+then:
+
+\[
+\lim_{t \to \infty} FXI_t = 1
+\]
+
+\textbf{Proof.}  
+Direct consequence of global contraction.  
+\hfill$\square$
+
+\subsection{Theorem 8 (Reachability of Equilibrium)}
+
+If a corrective step exists for all states (Axiom 10),  
+then the equilibrium $\Delta = 0$ is always reachable in finite or infinite time.
+
+\textbf{Proof.}  
+If every state admits a transition satisfying the consistency rule,  
+then a path to equilibrium always exists.  
+\hfill$\square$
+
+\clearpage
+\section{Critical Scenarios (Edge Cases)}
+
+Even though the Flexionization model is axiomatically strict, real implementations may encounter situations where assumptions hold only partially or temporarily.  
+These scenarios do not invalidate the theory but must be treated as boundary conditions for practical systems.
+
+\subsection{Asset Unavailability}
+
+If an asset becomes temporarily inaccessible (liquidity freeze, delisting, transfer lock):
+
+\begin{itemize}
+    \item admissible $\Delta q_i$ may be restricted,
+    \item corrective transitions may become partially infeasible,
+    \item the system may be unable to reach the next required state.
+\end{itemize}
+
+This corresponds to a temporary failure of Axiom 10 in implementation.
+
+\subsection{Dynamic Weight Adjustments}
+
+If weights $W_i$ depend on time or external factors:
+
+\begin{itemize}
+    \item the mapping $F(\Delta)$ may change shape,
+    \item invertibility may be weakened,
+    \item stability conditions must be re-evaluated.
+\end{itemize}
+
+This represents a generalized model where $W = W(t)$.
+
+
+\subsection{Partial Execution}
+
+If only part of a required adjustment is executed:
+
+\begin{itemize}
+    \item $F(S_{t+1}) = E(F(S_t))$ may not hold exactly,
+    \item the system may move along an approximation path,
+    \item multiple corrective steps may be needed.
+\end{itemize}
+
+Partial execution does not violate core axioms but weakens short-term convergence.
+
+
+\subsection{Constraints on $Q_F$}
+
+If structural mass cannot be increased or reduced beyond certain limits:
+
+\begin{itemize}
+    \item admissible $\Delta Q_F$ may shrink,
+    \item not all corrective operators $E$ remain feasible.
+\end{itemize}
+
+Such constraints require redefining the feasible region of $\mathcal{S}$.
+
+\subsection{External Shocks}
+
+Sudden changes in $Q_p$ (e.g., deposit/withdrawal spikes) may:
+
+\begin{itemize}
+    \item induce large deviations $\Delta$,
+    \item move the system outside the stable region,
+    \item require multiple consecutive corrections.
+\end{itemize}
+
+This scenario tests the robustness of the chosen operator $E$.
+
+\subsection{Loss of Monotonicity in $F$}
+
+If $F$ becomes non-monotonic due to mis-calibration or external modifications:
+
+\begin{itemize}
+    \item the relationship between $\Delta$ and FXI breaks,
+    \item dynamics may become undefined,
+    \item stability cannot be guaranteed.
+\end{itemize}
+
+This represents a fundamental mathematical failure.
+
+\subsection{Failure of $E$ to Produce a Step}
+
+If $E(FXI_t)$ is undefined or produces an invalid value:
+
+\begin{itemize}
+    \item no corrective transition exists,
+    \item the system cannot progress,
+    \item equilibrium becomes unreachable.
+\end{itemize}
+
+This violates Axiom 10 directly.
+
+\subsection{Incorrect Parameters $\mathcal{U}$}
+
+Incorrect or corrupted internal parameters may:
+
+\begin{itemize}
+    \item break admissibility bounds,
+    \item destabilize $F$ or $E$,
+    \item invalidate transition correctness.
+\end{itemize}
+
+Thus parameter integrity is essential for correct operation.
+
+\section{Appendix A: Examples of Equilibrium Operators}
+
+This appendix provides several examples of equilibrium operators $E$ that satisfy the axioms of Flexionization.  
+Each operator produces a different corrective behavior, and different implementations may choose one depending on system goals.
+
+\subsection{Linear Operator $E_1$}
+
+A simple proportional correction rule:
+
+\[
+E_1(x) = 1 + k (x - 1)
+\]
+
+where $0 < k < 1$.
+
+\begin{itemize}
+    \item monotonic,
+    \item contractive if $k < 1$,
+    \item globally stable.
+\end{itemize}
+
+\subsection{Logarithmic Operator $E_2$}
+
+A smooth, diminishing-response operator:
+
+\[
+E_2(x) = 1 + c \cdot \ln(x)
+\]
+
+where $c > 0$ is a scaling parameter.
+
+\begin{itemize}
+    \item ensures gentle corrections,
+    \item avoids overshooting,
+    \item useful for slow-adjusting systems.
+\end{itemize}
+
+\subsection{Hyperbolic Operator $E_3$}
+
+A stronger corrective operator:
+
+\[
+E_3(x) = 1 + \frac{d (x - 1)}{1 + |x - 1|}
+\]
+
+where $d > 0$.
+
+\begin{itemize}
+    \item strong correction when imbalance is large,
+    \item saturates near equilibrium,
+    \item often preferred for real-world controllers.
+\end{itemize}
+
+\subsection{Notes on Practical Usage}
+
+Choice of operator $E$ depends on:
+
+\begin{itemize}
+    \item desired responsiveness,
+    \item stability requirements,
+    \item risk tolerance,
+    \item expected magnitude of deviations.
+\end{itemize}
+
+Systems with high volatility may prefer $E_3$,  
+while systems requiring smooth behavior tend to select $E_2$.
+
+\clearpage
+\section{Appendix B: Economic Interpretation}
+
+This appendix provides intuitive, non-mathematical interpretations of the core quantities and mechanisms of Flexionization.  
+These interpretations do not alter any axioms or theorems—they serve only to improve understanding.
+
+\subsection{Interpretation of $Q_p$}
+
+$Q_p$ represents the synthetic structural mass of the asset pool.  
+It captures the combined weighted value of all assets, independent of price or market valuation.
+
+\subsection{Interpretation of $Q_F$}
+
+$Q_F$ represents the internal structural mass or issuance equivalent.  
+It acts as the reference point for defining structural deviation.
+
+\subsection{Interpretation of $\Delta$}
+
+\[
+\Delta = Q_p - Q_F
+\]
+
+\begin{itemize}
+    \item $\Delta > 0$ — structural excess,
+    \item $\Delta < 0$ — structural deficit,
+    \item $\Delta = 0$ — perfect balance.
+\end{itemize}
+
+\subsection{Interpretation of FXI}
+
+FXI indicates how expanded or compressed the system is:
+
+\begin{itemize}
+    \item $FXI > 1$ — expanded state,
+    \item $FXI < 1$ — compressed state,
+    \item $FXI = 1$ — structural symmetry.
+\end{itemize}
+
+\subsection{Interpretation of $E$}
+
+$E$ is the structural stabilizer of the system.  
+It determines how the system corrects imbalances on each step.
+
+\subsection{General Meaning of the Model}
+
+Flexionization models structural, not price-based, equilibrium:
+
+\begin{enumerate}
+    \item how imbalance is measured,
+    \item how a corrective action is chosen,
+    \item how equilibrium is restored over time.
+\end{enumerate}
+
+\subsection{Interpretation Limitations}
+
+These interpretations:
+
+\begin{itemize}
+    \item do not redefine the mathematics,
+    \item do not change model behavior,
+    \item serve only as an explanatory layer.
+\end{itemize}
+
+\clearpage
+\section{Conclusion}
+
+Flexionization provides a rigorous mathematical description of structural equilibrium in dynamic systems.  
+The model defines the state space, deviation, equilibrium indicator, and corrective operator, forming a coherent and extensible theoretical framework.
+
+Because the model is independent of market prices or agent behavior, it offers a highly predictable structure for designing economic systems, controllers, or asset pools.
+
+Version V1.5 resolves past inconsistencies and consolidates all elements of the theory into a single, unified framework.
+
+\clearpage
+\section{Possible Directions for Model Development}
+
+Potential extensions of the Flexionization model include:
+
+\begin{itemize}
+    \item Stochastic operators $E$ with probabilistic behavior.
+    \item Delay-based dynamics where $FXI_{t+1}$ depends on earlier states.
+    \item Time-varying weights $W(t)$.
+    \item Nonlinear mappings $F$ with richer stability behavior.
+    \item Multi-operator systems combining several corrective rules.
+    \item Analysis under extreme structural shocks.
+\end{itemize}
+
+These extensions can form the basis for future versions of the theory.
+
+\clearpage
+\section{References}
+
+\begin{enumerate}
+    \item Banach, S. \textit{Sur les opérations dans les ensembles abstraits}. Fundamenta Mathematicae, 1922.
+    \item Lyapunov, A. \textit{The General Problem of the Stability of Motion}, 1892.
+    \item Hirsch, Smale, Devaney. \textit{Differential Equations, Dynamical Systems, and an Introduction to Chaos}. Academic Press.
+    \item Strogatz, S. \textit{Nonlinear Dynamics and Chaos}. Westview Press.
+    \item Arrow, K., Debreu, G. \textit{Existence of an Equilibrium for a Competitive Economy}. Econometrica, 1954.
+    \item Rockafellar, R. \textit{Convex Analysis}. Princeton University Press.
+    \item Bertsekas, D. \textit{Dynamic Programming and Optimal Control}. Athena Scientific.
+    \item Boyd, Vandenberghe. \textit{Convex Optimization}. Cambridge University Press.
+    \item Khalil, H. \textit{Nonlinear Systems}. Prentice Hall.
+    \item Sutton, Barto. \textit{Reinforcement Learning: An Introduction}.
+\end{enumerate}
+
+\end{document}
