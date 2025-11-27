@@ -1,0 +1,621 @@
+\documentclass[12pt,a4paper]{article}
+
+% Basic packages
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{graphicx}
+
+% Page setup
+\geometry{margin=1in}
+\onehalfspacing
+
+% Section formatting
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+
+\begin{document}
+
+% ==========================
+% TITLE PAGE
+% ==========================
+\begin{titlepage}
+    \centering
+    
+    {\Large \textbf{Deflexionization}}\\[6pt]
+    {\large \textbf{Version 1.0}}\\[18pt]
+
+    {\large \textbf{Formal Theory of Structural Divergence}}\\[12pt]
+
+    \vfill
+
+    {\large \textbf{Maryan Bogdanov}}\\
+    Independent Researcher\\[6pt]
+    m7823445@gmail.com\\[20pt]
+
+    {\large 2025}\\[40pt]
+
+    {\small Document Type: Research / Theoretical Model}\\[4pt]
+    {\small LaTeX Source: Deflexionization-V1.0.tex}\\[4pt]
+    {\small DOI: (assigned after Zenodo publication)}
+
+    \vfill
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+% ==========================
+% SECTIONS
+% ==========================
+
+\section{Introduction}
+Deflexionization is a formal theory of divergent structural dynamics, symmetric and opposite in direction to the foundational Flexionization model. While Flexionization describes contractive equilibrium restoration---where the deviation $\Delta$ systematically moves toward zero---Deflexionization formalizes scenarios in which a system \textbf{moves away from equilibrium} under the influence of an expansive operator.
+
+In this framework, the system transitions according to
+\[
+F(S_{t+1}) = \tilde{E}\bigl(F(S_t)\bigr),
+\]
+where the operator $\tilde{E}$ amplifies the deviation, driving the system toward greater asymmetry. This dynamic models situations in which:
+\begin{itemize}
+    \item the corrective mechanism weakens or collapses,
+    \item the feedback loop reverses sign,
+    \item structural imbalance grows over time,
+    \item the system moves toward critical or extreme states.
+\end{itemize}
+
+Deflexionization thus provides a universal mathematical language for describing instability, divergence, and structural breakdown in economic, biological, technical, and other dynamical systems. Standing in conceptual symmetry with Flexionization, it expands the theoretical architecture to include the formal study of degradation, escalating imbalance, and collapse.
+
+\section{State Space}
+Deflexionization relies on the same formal state space as Flexionization, because both theories describe the behavior of the same structural system, but with opposite dynamic direction. This symmetry ensures that the framework captures both stabilizing and destabilizing processes within a unified mathematical architecture.
+
+A system state is defined as the tuple
+\[
+S = (Q_p, Q_F, \Delta, q, W, U),
+\]
+where:
+\begin{itemize}
+    \item $Q_p$ --- the synthetic structural mass of the system (actual state),
+    \item $Q_F$ --- the reference or ideal structural mass,
+    \item $\Delta = Q_p - Q_F$ --- the structural deviation,
+    \item $q$ --- a vector of quantitative parameters,
+    \item $W$ --- a vector of structural weights,
+    \item $U$ --- a set of internal system parameters.
+\end{itemize}
+
+While Flexionization focuses on keeping the system near equilibrium and maintaining $\Delta$ within a stable region, Deflexionization emphasizes motion \textbf{toward extreme, asymmetric, and potentially destructive states}.
+
+The admissible state space $\mathbb{S}$ must satisfy:
+\begin{enumerate}
+    \item All components of $S$ must lie within their admissible domains.
+    \item The deviation $\Delta$ must be continuously computable with a fixed symmetry point $\Delta = 0$.
+    \item The structural indicator $F(S)$ must be defined for all $S \in \mathbb{S}$.
+    \item The expansive operator $\tilde{E}$ must be defined on the full domain of FXI values, including near-extreme regions.
+    \item The system must allow trajectories that reach highly asymmetric states; otherwise, divergent dynamics cannot be analyzed.
+\end{enumerate}
+
+Deflexionization uses the same structural foundation as Flexionization but interprets the state space through the lens of \textbf{expanding dynamics}, where the system evolves toward increasing $\Delta$ rather than toward symmetry.
+
+\section{Axiomatic Foundation}
+The axiomatic structure of Deflexionization is a mirror image of Flexionization, but with all dynamic directions reversed. Whereas Flexionization is built on contractive, stabilizing operators, Deflexionization introduces an expansive operator $\tilde{E}$ that amplifies structural deviation.
+
+Below is the complete set of axioms establishing mathematical consistency and well-posed divergent dynamics.
+
+\subsection*{Axiom 1: Admissible State Space}
+The system state $S$ must always belong to the admissible state space $\mathbb{S}$, and no transition may move the system outside the domain where $\Delta$, $F$, and $\tilde{E}$ are defined.
+
+\subsection*{Axiom 2: Structural Deviation}
+Structural deviation is defined as
+\[
+\Delta = Q_p - Q_F,
+\]
+and must be computable for every $S \in \mathbb{S}$.  
+The admissible region for $\Delta$ must allow growth toward critical or extreme values.
+
+\subsection*{Axiom 3: Structural Asymmetry Indicator (FXI)}
+The asymmetry indicator is defined by
+\[
+\mathrm{FXI} = F(S),
+\]
+where $F$ is a strictly monotonic mapping of deviation. It satisfies:
+\[
+\mathrm{FXI} = 1 \ \text{(structural symmetry)}, \qquad
+\mathrm{FXI} > 1 \ \text{(expanded state)}, \qquad
+\mathrm{FXI} < 1 \ \text{(compressed state)}.
+\]
+
+\subsection*{Axiom 4: Expansive Operator $\tilde{E}$}
+The Deflexionization operator
+\[
+\tilde{E}: \mathbb{R}^+ \to \mathbb{R}^+
+\]
+must be:
+\begin{itemize}
+    \item total (defined for all admissible FXI values),
+    \item continuous,
+    \item strictly monotonic,
+    \item expansive, i.e.\ there exists $\alpha > 1$ such that
+          \[
+          |\tilde{E}(x) - 1| \ge \alpha\,|x - 1|, \quad x \ne 1,
+          \]
+    \item anti-contractive: deviation magnitudes cannot decrease.
+\end{itemize}
+
+\subsection*{Axiom 5: Admissibility of Expanding Transitions}
+For every state $S_t$, there must exist an admissible transition to $S_{t+1}$ satisfying:
+\[
+F(S_{t+1}) = \tilde{E}\bigl(F(S_t)\bigr).
+\]
+
+\subsection*{Axiom 6: Continuity of Transitions}
+The transition $S_t \to S_{t+1}$ must be structurally continuous.  
+No discontinuous jumps in $\Delta$ or FXI are allowed.
+
+\subsection*{Axiom 7: Dynamic Consistency}
+All transitions must satisfy the governing rule:
+\[
+F(S_{t+1}) = \tilde{E}\bigl(F(S_t)\bigr),
+\]
+ensuring consistency of divergence.
+
+\subsection*{Axiom 8: Admissibility of Extreme Dynamics}
+The system must support trajectories approaching highly asymmetric states:
+\[
+\mathrm{FXI} \to M,
+\]
+where $M$ is the upper (or lower) admissible structural limit.  
+The operator $\tilde{E}$ must remain defined at these extremes.
+
+These axioms form the mathematical backbone of Deflexionization, ensuring the existence of divergent trajectories and the continuity of expanding structural dynamics.
+
+\section{Expansive Operator $\tilde{E}$}
+Unlike Flexionization, where the operator $E$ enforces contraction of deviation and moves the system toward structural symmetry, Deflexionization is governed by an operator $\tilde{E}$ whose role is to \textbf{amplify} deviation. The operator transforms an FXI value into a more asymmetric one, making equilibrium dynamically unstable.
+
+\subsection*{4.1 Definition}
+
+The expansive operator is a mapping
+\[
+\tilde{E} : \mathbb{R}^+ \to \mathbb{R}^+,
+\]
+acting on the structural asymmetry indicator FXI and producing a new, more divergent value.
+
+Its defining property is \textbf{anti-contractiveness}:
+\[
+|\tilde{E}(x) - 1| \ge \alpha |x - 1|, \qquad \alpha > 1.
+\]
+
+\subsection*{4.2 Core Properties}
+
+The operator $\tilde{E}$ must satisfy the following:
+
+\paragraph{(1) Monotonicity.}
+If $x_1 > x_2$, then $\tilde{E}(x_1) > \tilde{E}(x_2)$,  
+and if $x_1 < x_2$, then $\tilde{E}(x_1) < \tilde{E}(x_2)$.
+
+\paragraph{(2) Symmetry Point.}
+\[
+\tilde{E}(1) = 1,
+\]
+but FXI = 1 is now an \emph{unstable} point.
+
+\paragraph{(3) Deviation Amplification.}
+There exists $\alpha > 1$ such that
+\[
+|\tilde{E}(x) - 1| \ge \alpha |x - 1|, \qquad x \ne 1.
+\]
+
+\paragraph{(4) Global Definedness.}
+The operator must be defined on the entire FXI domain, including:
+\[
+\mathrm{FXI} \to 0, \qquad \mathrm{FXI} \to M.
+\]
+
+\paragraph{(5) Continuity.}
+The mapping $\tilde{E}(x)$ must be continuous everywhere in its domain.
+
+\paragraph{(6) Structural Amplification.}
+For any $x > y > 1$:
+\[
+\tilde{E}(x) - \tilde{E}(y) \ge \alpha (x - y),
+\]
+ensuring acceleration of divergence at higher asymmetry.
+
+\subsection*{4.3 Interpretation}
+
+The operator $\tilde{E}$ transforms equilibrium from a stabilizing attractor into a \textbf{repeller}. Its behavior can be summarized as:
+\begin{itemize}
+    \item If $\mathrm{FXI} > 1$, the operator pushes FXI further upward.
+    \item If $\mathrm{FXI} < 1$, the operator pushes FXI further downward.
+    \item If $\mathrm{FXI} = 1$, any infinitesimal deviation grows.
+\end{itemize}
+
+Thus, $\tilde{E}$ formalizes the mechanism of:
+\begin{itemize}
+    \item loss of feedback stability,
+    \item explosive divergence of structural masses,
+    \item cascading imbalance,
+    \item motion toward structural breakdown.
+\end{itemize}
+
+The expansive operator $\tilde{E}$ is therefore the core mechanism governing the divergent dynamics of Deflexionization.
+
+\section{Dynamics of Deflexionization}
+The dynamics of Deflexionization describe how a system transitions from one state to the next while
+\textbf{increasing} its structural deviation $\Delta$ under the influence of the expansive operator $\tilde{E}$.
+In contrast to Flexionization --- where equilibrium is a stable attractor --- Deflexionization turns equilibrium into
+an unstable repeller, causing even small deviations to grow.
+
+The fundamental transition rule is:
+\[
+F(S_{t+1}) = \tilde{E}\bigl(F(S_t)\bigr).
+\]
+Thus, the system inevitably moves away from structural symmetry and toward increasing asymmetry.
+
+\subsection*{5.1 Evolution of FXI}
+
+The evolution of FXI follows:
+\[
+\mathrm{FXI}_{t+1} = \tilde{E}(\mathrm{FXI}_t).
+\]
+
+The behavior satisfies:
+\begin{itemize}
+    \item If $\mathrm{FXI}_t > 1$, then $\mathrm{FXI}_{t+1} > \mathrm{FXI}_t$.
+    \item If $\mathrm{FXI}_t < 1$, then $\mathrm{FXI}_{t+1} < \mathrm{FXI}_t$.
+    \item If $\mathrm{FXI}_t = 1$, any perturbation leads to divergence.
+\end{itemize}
+
+Thus, FXI moves away from symmetry with geometric acceleration.
+
+\subsection*{5.2 Evolution of Deviation $\Delta$}
+
+Since $F$ is strictly monotonic and invertible, the evolution of deviation is:
+\[
+\Delta_{t+1} = F^{-1}\!\left(\tilde{E}(F(\Delta_t))\right).
+\]
+
+Interpretation:
+\begin{itemize}
+    \item $\Delta$ grows monotonically,
+    \item divergence rate is dictated by anti-contractiveness of $\tilde{E}$,
+    \item self-correction is impossible within this model.
+\end{itemize}
+
+\subsection*{5.3 Geometry of Divergence}
+
+Let $\Delta = 0$ correspond to perfect symmetry ($\mathrm{FXI} = 1$).  
+Then:
+\begin{itemize}
+    \item Flexionization is contractive ($\Delta \to 0$),
+    \item Deflexionization is expansive ($|\Delta| \to \infty$ or to domain limits).
+\end{itemize}
+
+There exists $\alpha > 1$ such that:
+\[
+|\Delta_{t+1}| \ge \alpha |\Delta_t|, \qquad \Delta_t \ne 0.
+\]
+
+Thus:
+\begin{itemize}
+    \item divergence accelerates,
+    \item equilibrium is dynamically unstable,
+    \item trajectories always leave the neighborhood of $\Delta = 0$.
+\end{itemize}
+
+\subsection*{5.4 Direction of Motion}
+
+The sign of $(\mathrm{FXI}_t - 1)$ determines the divergence direction:
+\begin{itemize}
+    \item If $\mathrm{FXI}_t > 1$ --- expansion zone,
+    \item If $\mathrm{FXI}_t < 1$ --- compression zone.
+\end{itemize}
+
+Both lead to increasing asymmetry.
+
+\subsection*{5.5 Impossibility of Return to Symmetry}
+
+The operator $\tilde{E}$ prohibits transitions where $|\Delta_{t+1}| < |\Delta_t|$.  
+Thus:
+\[
+\Delta_t \ne 0 \ \Rightarrow\ \Delta_{t+k} \ne 0 \quad \text{for all } k>0.
+\]
+
+Consequences:
+\begin{itemize}
+    \item equilibrium cannot be restored internally,
+    \item $\mathrm{FXI}$ cannot return to 1,
+    \item deviation cannot decrease.
+\end{itemize}
+
+Restoration requires switching to the Flexionization operator.
+
+\subsection*{5.6 Asymptotic Dynamics}
+
+As $t \to \infty$:
+\[
+\mathrm{FXI}_t \to M \quad \text{or} \quad \mathrm{FXI}_t \to 0,
+\]
+depending on direction of divergence.
+
+Thus:
+\begin{itemize}
+    \item the system approaches structural limits,
+    \item asymmetry becomes dominant,
+    \item collapse or extreme imbalance becomes mathematically inevitable.
+\end{itemize}
+
+\section{Theorems of Deflexionization}
+The theorems of Deflexionization formalize the fundamental properties of divergent dynamics.
+They establish that equilibrium becomes a repelling point, deviation grows geometrically, oscillations
+are impossible, and the system inevitably moves toward structural extremes.
+
+\subsection*{Theorem 1: Equilibrium is a Repeller}
+
+Let $\mathrm{FXI} = 1$ correspond to structural symmetry ($\Delta = 0$).  
+If
+\[
+|\tilde{E}(x) - 1| \ge \alpha |x - 1|, \qquad \alpha > 1,
+\]
+then $\mathrm{FXI} = 1$ is a dynamically unstable repelling point.
+
+\textbf{Proof.}  
+For any $x \ne 1$:
+\[
+|\tilde{E}(x) - 1| > |x - 1|.
+\]
+Thus, distance from symmetry grows at every step. \hfill $\square$
+
+\subsection*{Theorem 2: Exponential Divergence of FXI}
+
+For any initial state $\mathrm{FXI}_0 \ne 1$,
+\[
+|\mathrm{FXI}_t - 1| \ge \alpha^t |\mathrm{FXI}_0 - 1|.
+\]
+
+\textbf{Consequences:}
+\begin{itemize}
+    \item divergence is geometric, not linear,
+    \item the system accelerates away from symmetry,
+    \item deviation increases at an exponential rate.
+\end{itemize}
+
+\subsection*{Theorem 3: Geometric Amplification of $\Delta$}
+
+Since $F$ is monotonic and invertible,
+\[
+|\Delta_{t+1}| \ge \alpha |\Delta_t|,
+\]
+and therefore
+\[
+|\Delta_t| \ge \alpha^t |\Delta_0|.
+\]
+
+This ties structural deformation directly to the expansive behavior of $\tilde{E}$.
+
+\subsection*{Theorem 4: Uniqueness of the Repelling Point}
+
+If $\tilde{E}$ is continuous and monotonic, the equation
+\[
+\tilde{E}(x) = x
+\]
+has exactly one solution: $x = 1$.
+
+Thus:
+\begin{itemize}
+    \item the system has a \emph{single} structurally neutral point,
+    \item this point is unstable,
+    \item all trajectories diverge from it.
+\end{itemize}
+
+\subsection*{Theorem 5: Impossibility of Symmetry Restoration}
+
+If $\mathrm{FXI}_0 \ne 1$, then for all $t > 0$,
+\[
+\mathrm{FXI}_t \ne 1 \quad \text{and} \quad \Delta_t \ne 0.
+\]
+
+\textbf{Reason.}  
+The operator $\tilde{E}$ never reduces deviation; thus trajectories cannot cross the repelling point.  
+\hfill $\square$
+
+\subsection*{Theorem 6: Absence of Oscillations}
+
+For any $\mathrm{FXI}_a < \mathrm{FXI}_b$ (and neither equal to 1):
+\[
+\tilde{E}(\mathrm{FXI}_a) < \tilde{E}(\mathrm{FXI}_b).
+\]
+
+Therefore:
+\begin{itemize}
+    \item divergence is monotonic,
+    \item no oscillatory behavior is possible,
+    \item direction of motion cannot reverse.
+\end{itemize}
+
+\subsection*{Theorem 7: Guaranteed Approach to Extreme Regions}
+
+For any initial $\mathrm{FXI}_0 \ne 1$ and threshold $P$ such that $P>1$ or $P<1$,  
+there exists $T$ such that:
+\[
+t \ge T \quad \Rightarrow \quad \mathrm{FXI}_t \ge P
+\quad \text{or} \quad \mathrm{FXI}_t \le P.
+\]
+
+Thus the system must reach a critical region of asymmetry.
+
+\subsection*{Theorem 8: No Cyclic Trajectories}
+
+In the Deflexionization model, no periodic orbit of length $\ge 2$ can exist.
+
+\textbf{Reason.}  
+Monotonicity and anti-contractiveness ensure deviation always grows; a trajectory cannot return to a previous state unless $\mathrm{FXI}=1$, which is unreachable.  
+\hfill $\square$
+
+These theorems form the foundation of Deflexionization dynamics, establishing the inevitability of divergence, the impossibility of oscillation, and the geometric expansion of structural deviation.
+
+\section{Critical Scenarios and Boundary States}
+Deflexionization formalizes the dynamics of systems moving toward states of maximal structural
+asymmetry. These scenarios represent mathematical analogues of collapse, runaway imbalance,
+structural overload, or destructive divergence. Flexionization maintains equilibrium; Deflexionization
+describes its loss.
+
+Below are the principal classes of critical scenarios.
+
+\subsection*{7.1 Expansion Drift}
+
+When $\mathrm{FXI}_t > 1$, the system enters a regime of expanding divergence:
+\begin{itemize}
+    \item $\Delta$ increases monotonically,
+    \item FXI moves toward critically large values,
+    \item structural parameters begin to dominate the system’s behavior.
+\end{itemize}
+
+This represents progressive structural breakdown.
+
+\subsection*{7.2 Compression Collapse}
+
+When $\mathrm{FXI}_t < 1$, the system moves in the opposite direction:
+\begin{itemize}
+    \item $\Delta$ becomes increasingly negative,
+    \item FXI falls below 1 with accelerating speed,
+    \item the system loses structural flexibility.
+\end{itemize}
+
+This corresponds to collapse, rigidity, or over-compression.
+
+\subsection*{7.3 Critical Asymmetry Zone}
+
+Let $M$ denote the upper admissible bound for FXI.  
+Approaching the limit:
+\[
+\mathrm{FXI} \to M,
+\]
+indicates near-breakdown states:
+\begin{itemize}
+    \item $\Delta$ becomes uncontrolled,
+    \item divergence slows only due to domain saturation,
+    \item structural stability cannot be recovered.
+\end{itemize}
+
+\subsection*{7.4 Cascade Divergence}
+
+Under prolonged expansive dynamics:
+\begin{itemize}
+    \item each divergent step amplifies the next,
+    \item $\Delta$ grows rapidly,
+    \item the structure moves into accelerating pathology.
+\end{itemize}
+
+This models cascades, runaway failure, and uncontrolled positive feedback.
+
+\subsection*{7.5 Multidimensional Divergence}
+
+In systems with multiple structural components:
+\begin{itemize}
+    \item each deviation component $\Delta_i$ increases under its corresponding FXI component,
+    \item divergence unfolds in a multidimensional state space,
+    \item the structure expands along several axes simultaneously.
+\end{itemize}
+
+This is relevant for risk models, biological systems, and complex engineered architectures.
+
+\subsection*{7.6 Edge-of-Domain Dynamics}
+
+As FXI approaches $0$ or $M$:
+\begin{itemize}
+    \item divergence continues up to admissible limits,
+    \item operator $\tilde{E}$ remains defined at extremes,
+    \item $\Delta$ moves toward its structural boundary.
+\end{itemize}
+
+The system enters an ``edge of viability'' region.
+
+\subsection*{7.7 Irreversible Drift}
+
+Deflexionization prohibits self-correction:
+\begin{itemize}
+    \item deviation cannot shrink,
+    \item equilibrium cannot be restored,
+    \item $\mathrm{FXI}$ cannot return to 1.
+\end{itemize}
+
+This models systems where loss of feedback is permanent:
+\begin{itemize}
+    \item financial bubbles,
+    \item tumor growth,
+    \item error accumulation,
+    \item mechanical fatigue,
+    \item systemic collapse.
+\end{itemize}
+
+\subsection*{7.8 Structural Breakdown}
+
+At the extreme:
+\begin{itemize}
+    \item $\Delta$ reaches its maximal admissible value,
+    \item FXI exceeds operational viability,
+    \item the structure collapses or becomes nonfunctional.
+\end{itemize}
+
+This defines mathematical structural failure.
+
+These scenarios formalize the extreme behaviors possible under Deflexionization, describing systems
+that accelerate imbalance, accumulate asymmetry, and move toward structural limits with
+geometric divergence.
+
+\section{Conclusion}
+Deflexionization provides a formal mathematical framework for systems whose dynamics lead not toward
+equilibrium but away from it. As the structural mirror image of Flexionization, it reverses the direction
+of motion: equilibrium becomes unstable, deviation becomes self-amplifying, and divergence becomes
+the defining characteristic of system evolution.
+
+At its core is the expansive operator $\tilde{E}$, which ensures that:
+\begin{itemize}
+    \item any deviation grows rather than contracts,
+    \item the equilibrium point is a repeller,
+    \item trajectories move toward structural extremes,
+    \item asymmetry accelerates geometrically,
+    \item stability cannot be restored without switching models.
+\end{itemize}
+
+This framework formally describes:
+\begin{itemize}
+    \item structural collapse,
+    \item runaway divergence,
+    \item loss of regulatory control,
+    \item system-wide imbalance,
+    \item irreversible drift into extreme states.
+\end{itemize}
+
+Deflexionization thus complements Flexionization by completing the dual architecture of structural
+dynamics: while Flexionization governs stability and equilibrium restoration, Deflexionization governs
+instability, divergence, and breakdown. Together, the two theories form a unified mathematical platform
+capable of describing both the maintenance and the dissolution of structure across economic, biological,
+technical, and systemic domains.
+
+Deflexionization is therefore not merely an extension but a full theoretical counterpart, establishing the
+formal laws of structural divergence and providing a rigorous foundation for analyzing the dynamics of
+systems that move away from equilibrium.
+
+% ==========================
+% REFERENCES
+% ==========================
+\begin{thebibliography}{99}
+
+\bibitem{Bogdanov2025Flexionization}
+Bogdanov, M.  
+\textit{Flexionization: Formal Theory of Dynamic Quantitative Equilibrium}.  
+Version 1.5, 2025. Zenodo.  
+DOI: 10.5281/zenodo.17618947.
+
+\bibitem{Bogdanov2025Deflexionization}
+Bogdanov, M.  
+\textit{Deflexionization: Formal Theory of Structural Divergence}.  
+Version 1.0, 2025. Zenodo.  
+DOI: (to be assigned).
+
+\end{thebibliography}
+
+\end{document}

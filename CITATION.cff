@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use the Flexion Framework in your research, please cite it as below."
+title: "Flexion Framework"
+version: "1.2"
+doi: "10.5281/zenodo.17732752"
+authors:
+  - family-names: "Bogdanov"
+    given-names: "Maryan"
+    email: "m7823445@gmail.com"
+date-released: "2025-11-27"
+abstract: "The Flexion Framework is a unified structural architecture integrating the seven fundamental theories of Flexion Science: Genesis, Dynamics, Space, Time, Fields, Entanglement, and Collapse. It defines the full structural cycle, boundary conditions, geometric and temporal formation rules, and the universal state vector X = (Δ, Φ, M, κ)."
+keywords:
+  - Flexion Framework
+  - Structural Physics
+  - Structural Cycle
+  - Δ Φ M κ
+  - Entanglement
+  - Collapse
+license: "CC-BY-4.0"
