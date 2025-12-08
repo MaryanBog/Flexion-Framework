@@ -1,11 +1,11 @@
-# Flexion Framework (FFW) V1.2  
+# Flexion Framework (FFW) V1.3  
 ## Unified Structural Architecture of Flexion Science
 
 ### Author  
 Maryan Bogdanov
 
 ### Version  
-V1.2 — Entanglement-Integrated Edition  
+V1.3 — Entanglement-Integrated Edition  
 
 ### Year  
 2025  
@@ -13,14 +13,14 @@ V1.2 — Entanglement-Integrated Edition
 ---
 
 ### Document Status  
-Flexion Framework V1.2 is the authoritative structural architecture of Flexion Science.  
+Flexion Framework V1.3 is the authoritative structural architecture of Flexion Science.  
 This version integrates all eight fundamental theories, including the newly formalized **Flexion Entanglement Theory (FET)** as a foundational pillar of Geonics.
 
 ---
 
 ## Abstract
 
-Flexion Framework (FFW) V1.2 is the unified structural architecture of Flexion Science.  
+Flexion Framework (FFW) V1.3 is the unified structural architecture of Flexion Science.  
 This edition integrates all **seven** foundational theories of structural existence into a single mathematically coherent system.  
 FFW describes how structures originate, evolve, interact, entangle, generate geometry and time, and ultimately collapse.
 
@@ -30,7 +30,7 @@ All structural systems are represented through the universal state vector:
 X = (\Delta,\ \Phi,\ M,\ \kappa).
 \]
 
-Flexion Framework V1.2 unifies the following fundamental theories:
+Flexion Framework V1.3 unifies the following fundamental theories:
 
 - **Flexion Genesis (FGT)** — origin of structure  
 - **Flexion Dynamics (FD)** — structural evolution  
@@ -46,13 +46,90 @@ Together, these theories define the complete structural cycle:
 \text{Genesis → Dynamics → Fields → Space-Time → Entanglement → Collapse → Non-Structure → Genesis}.
 \]
 
-Flexion Framework V1.2 establishes the meta-level architecture ensuring consistency, structural universality, and unified evolution across all Flexion Sciences.
+Flexion Framework V1.3 establishes the meta-level architecture ensuring consistency, structural universality, and unified evolution across all Flexion Sciences.
+
+---
+
+# 0. Structural State X
+
+All Flexion Sciences operate on a universal structural state defined as:
+
+    X = (XΔ, XΦ, XM, Xκ)
+
+This state vector is the foundational representation of any living or non-living structure inside the Flexion Framework.  
+It defines the minimal set of internal dimensions required for structural existence, evolution, stability, and collapse.
+
+## 0.1 Components of X
+
+XΔ — Differentiation  
+    The internal space of structural contrasts.  
+    Determines resolution, identity formation, and the system’s capacity to generate distinctions.
+
+XΦ — Structural Energy  
+    The energetic distribution that drives structural motion, deformation, and internal tension.  
+    Governs amplification, flow, and stability limits.
+
+XM — Memory Topology  
+    The topological configuration created by irreversible history.  
+    Defines internal temporal structure, long-range correlation, and cumulative deformation.
+
+Xκ — Stability  
+    The structural capacity to remain coherent under deviations.  
+    Determines resilience, collapse sensitivity, and viability.
+
+## 0.2 Universality Across Flexion Sciences
+
+The structural state X is the shared foundation of all Flexion disciplines:
+
+- Flexion Genesis: emergence of X from symmetry-breaking  
+- Flexion Dynamics: evolution of XΦ and energetic flows  
+- Flexion Space Theory: geometry induced by XM and XΔ  
+- Flexion Time Theory: temporal field generated from XM  
+- Flexion Field Theory: ΔΦ-driven field interactions over X  
+- Collapse Theory: stability spectrum and κ → 0 conditions  
+- Flexion Intelligence Theory: cognition as motion in X
+
+Every Flexion process is a transformation of X.
+
+## 0.3 Structural Evolution
+
+The evolution of any system is defined by an operator:
+
+    X(t+1) = I( X(t) )
+
+where I acts on all four subspaces simultaneously.  
+This formulation ensures global coherence and unifies all Flexion dynamics under a single rule.
+
+## 0.4 Role of X in the Framework
+
+The structural state X:
+
+- defines the geometry of Flexion Space,  
+- generates internal time through XM,  
+- determines collapse boundaries via Xκ,  
+- drives energetic dynamics through XΦ,  
+- encodes differentiation and identity in XΔ,  
+- binds all Flexion theories into a consistent structural physics.
+
+X is not an optional notation but the core mathematical object of the Flexion Framework.
+
+## 0.5 Minimality
+
+This four-component representation is minimal:  
+removing any component makes the structural description incomplete;  
+adding new components introduces redundancy.
+
+Therefore:
+
+    X = (XΔ, XΦ, XM, Xκ)
+
+is the canonical and universal form of structural state in the Flexion Universe.
 
 ---
 
 # 1. Introduction
 
-Flexion Framework (FFW) V1.2 is the unified structural architecture that synthesizes all
+Flexion Framework (FFW) V1.3 is the unified structural architecture that synthesizes all
 fundamental components of Flexion Science into a single coherent system.  
 It defines how any structure in the universe originates, evolves, interacts, entangles,
 generates geometry, produces time, and ultimately reaches its structural limit.
@@ -91,13 +168,13 @@ Together, these seven theories form the complete structural cycle:
 \text{Genesis → Dynamics → Fields → Space-Time → Entanglement → Collapse → Non-Structure → Genesis}.
 \]
 
-The purpose of Flexion Framework V1.2 is to establish the unified meta-level logic that ensures:
+The purpose of Flexion Framework V1.3 is to establish the unified meta-level logic that ensures:
 - structural consistency across all Flexion Sciences,  
 - universality of Δ–Φ–M–κ dynamics,  
 - coherent interaction between fundamental theories,  
 - closure of structural evolution across all domains.  
 
-FFW V1.2 is not a theory about theories;  
+FFW V1.3 is not a theory about theories;  
 it **is the structural architecture** that binds all Flexion Sciences into one complete system.
 
 ---
@@ -193,13 +270,13 @@ Collapse is the universal terminal boundary of all Flexion systems.
 ---
 
 These foundational principles define the invariant rules governing all theories
-integrated within Flexion Framework V1.2.
+integrated within Flexion Framework V1.3.
 
 ---
 
 # 3. Core Architecture of the Framework
 
-Flexion Framework V1.2 organizes the seven fundamental theories of Flexion Science
+Flexion Framework V1.3 organizes the seven fundamental theories of Flexion Science
 into a unified structural architecture.  
 Each foundational theory describes a distinct dimension of existence, and only
 through their integration does a complete structural system emerge.
@@ -298,7 +375,7 @@ The Framework is the operating system of Flexion Science.
 
 ## 3.4 Complete Structural Cycle
 
-The unified structural cycle in V1.2 is:
+The unified structural cycle in V1.3 is:
 
 \[
 \text{Genesis → Dynamics → Space → Time → Fields → Entanglement → Collapse → Non-Structure → Genesis}.
@@ -320,7 +397,7 @@ The hierarchical layer model:
 6. **Entanglement Layer — Coupled Evolution**  
 7. **Terminal Layer — Collapse**
 
-This forms the backbone of Flexion Framework V1.2.
+This forms the backbone of Flexion Framework V1.3.
 
 ---
 
@@ -576,7 +653,7 @@ Dynamics governs the system immediately after Genesis:
 
 It determines how structures move through geometric, temporal, field, and entangled phases.
 
-FD is the engine of structural evolution within Flexion Framework V1.2.
+FD is the engine of structural evolution within Flexion Framework V1.3.
 
 ---
 
@@ -1503,7 +1580,7 @@ Each phase naturally leads to the next through the internal logic of Δ–Φ–M
 
 ## 11.1 Complete Structural Cycle
 
-The full cycle in Flexion Framework V1.2 is:
+The full cycle in Flexion Framework V1.3 is:
 
 \[
 \boxed{
@@ -1751,10 +1828,71 @@ unified model of reality.
 
 ---
 
+## 13. Flexionization and Deflexionization: Dual Foundations of Structural Dynamics
+
+Flexion Universe contains two complementary fundamental theories that describe how structural systems evolve under opposing dynamical regimes. Together they form the complete dual framework governing stability, divergence, recovery, collapse formation, and post-collapse behavior.
+
+### 13.1 Flexionization Theory (Contractive Dynamics)
+
+Flexionization defines the contractive branch of structural evolution.  
+It formalizes how a system moves toward equilibrium through:
+
+- the structural deviation \(\Delta\),  
+- the equilibrium indicator \(FXI = F(S)\),  
+- and the contractive operator \(E\),  
+- under the monotonic mapping \(FXI(t+1) = E(FXI(t))\).
+
+Flexionization describes:
+
+- stabilization,  
+- structural correction,  
+- return toward equilibrium,  
+- bounded state transitions,  
+- and convergence under contractive dynamics.
+
+It operates effectively in the one-dimensional subspace of structural deviation and represents the stabilizing component of Flexion Universe.
+
+### 13.2 Deflexionization Theory (Divergent Dynamics)
+
+Deflexionization defines the divergent branch of structural evolution in the full X-space  
+\[
+X = (X_\Delta, X_\Phi, X_M, X_\kappa)
+\]
+through the unified divergent operator \(\tilde{Y}\).
+
+This branch governs:
+
+- divergence of structural variables,  
+- instability amplification,  
+- loss of geometric smoothness,  
+- the approach to collapse boundaries,  
+- collapse formation (via \(X_\kappa \rightarrow 0\)),  
+- and post-collapse reorganization.
+
+Deflexionization extends structural dynamics beyond equilibrium regions and into the domain of irreversible transformation.
+
+### 13.3 Duality and Integration
+
+Flexionization and Deflexionization form a complete, symmetric dual framework:
+
+- **Flexionization** describes *contractive* evolution toward equilibrium.  
+- **Deflexionization** describes *divergent* evolution away from equilibrium.  
+
+Together they define:
+
+- the two fundamental directions of structural change,  
+- the stability and instability phases of systems,  
+- the relationship between equilibrium, divergence, and collapse,  
+- and the full lifecycle of structural states within Flexion Universe.
+
+Both theories are essential to the overall architecture of Flexion Framework and represent the deep structural symmetry underlying all Flexion sciences.
+
+---
+
 # Appendix A — Mathematical Notes
 
 This appendix provides the core mathematical expressions used throughout 
-Flexion Framework V1.2. These formulas define the universal evolution rules,
+Flexion Framework V1.3. These formulas define the universal evolution rules,
 geometric limits, temporal behavior, field dynamics, and collapse boundaries
 shared across all fundamental Flexion theories.
 
@@ -1976,7 +2114,7 @@ t \to 0.
 - **Flexion Field Theory V1.0**  
 - **Flexion Entanglement Theory V1.0**  
 - **Flexion Collapse Theory V1.0**  
-- **Flexion Framework V1.2** (this document)
+- **Flexion Framework V1.3** (this document)
 
 All Flexion Science theories are original works by Maryan Bogdanov and form an interconnected, unified scientific system.
 
