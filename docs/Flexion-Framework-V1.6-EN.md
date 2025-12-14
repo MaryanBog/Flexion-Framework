@@ -1,11 +1,11 @@
-# Flexion Framework V1.5  
+# Flexion Framework V1.6  
 ### Unified Structural Foundation for Flexion Theories
 
 ---
 
 # 0. Overview
 
-Flexion Framework V1.5 defines the minimal theoretical structure required for any Flexion organism to exist, evolve, and terminate.  
+Flexion Framework V1.6 defines the minimal theoretical structure required for any Flexion organism to exist, evolve, and terminate.  
 It is not an explanatory document and not an overview — it is a **strict formal core**, providing only the essential definitions and laws that all Flexion theories must obey.
 
 At the center of the Framework stands the **living structural state**:
@@ -367,3 +367,66 @@ The Unified Flexion Operator:
 - and terminates at collapse.
 
 It is the final and complete mathematical description of structural evolution in Flexion Framework V1.5.
+
+---
+
+# 6. FMRT Core — Universal Structural Evolution Engine
+
+FMRT Core is the canonical realization of the Unified Flexion Operator  
+\[
+\mathbb{F}(X)
+\]
+and functions as the minimal and complete computational engine responsible for evolving a Flexion organism in strict accordance with the laws defined in the Flexion Framework V1.5.
+
+## 6.1 Purpose
+
+FMRT Core implements the autonomous evolution of the living structural state  
+\[
+X(t) = (X_\Delta, X_\Phi, X_M, X_\kappa),
+\]  
+ensuring that every transition inside the universal structural cascade  
+\[
+X_\Delta \rightarrow X_\Phi \rightarrow X_M \rightarrow X_\kappa \rightarrow X_\Delta
+\]  
+obeys the four fundamental invariants: memory irreversibility, viability monotonicity, geometric determinism, and collapse singularity.  
+It is the only valid operational realization of structural evolution permitted by the Framework.
+
+## 6.2 External Stimulation: Minimal Input Requirement
+
+FMRT Core interacts with the external world exclusively through minimal structural events.  
+Each event provides two quantities: a temporal increment \(dt > 0\) and a deformation stimulus \(d\Delta\).  
+Critically, FMRT Core requires **no external access** to tension, memory, viability, geometry, semantics, or domain-specific parameters.  
+The sole admissible external influence is the observable change encoded in \(d\Delta\).  
+All other structural quantities are generated internally by the organism.
+
+## 6.3 Autonomy and Universality
+
+Because its interface requires only \(d\Delta\), FMRT Core is fully domain-agnostic and universally applicable.  
+It does not depend on the nature or meaning of the external system, and remains completely detached from interpretation, semantics, or context.  
+Any system that exhibits measurable change can be represented through deformation stimuli and evolved inside the Flexion manifold.  
+Thus FMRT Core serves as a **universal engine** capable of modeling biological, financial, physical, ecological, cognitive, engineered, or abstract dynamical structures.
+
+## 6.4 Internal Generation of Structural Quantities
+
+Upon receiving \((dt, d\Delta)\), FMRT Core autonomously computes the next structural state  
+\[
+X(t+1) = (X_\Delta(t+1), X_\Phi(t+1), X_M(t+1), X_\kappa(t+1)),
+\]  
+together with derived geometric quantities such as curvature, temporal density, metric determinant, morphology, and structural regime.  
+No external system can control or modify these internal mechanisms; they are defined entirely by the autonomous operator \(\mathbb{F}(X)\).
+
+## 6.5 Collapse and Structural Termination
+
+FMRT Core enforces the Framework’s collapse boundary:  
+when viability reaches zero,  
+\[
+X_\kappa = 0,
+\]  
+the manifold degenerates, curvature diverges, structural time extinguishes, and further evolution becomes undefined.  
+Only a Reset event may reinitialize the organism after collapse.
+
+## 6.6 Role within Flexion Universe
+
+FMRT Core acts as the operational foundation of all Flexion-based systems.  
+Higher Flexion theories—including Dynamics, Space, Time, Field, Genesis, Entanglement, and Collapse—assume the existence of the evolution operator realized by FMRT Core.  
+Because it requires only minimal observable deformation to function, FMRT Core serves as a **universal structural substrate** that enables Flexion organisms to be instantiated in any practical domain without altering the underlying mathematics.
